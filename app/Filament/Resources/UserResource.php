@@ -44,7 +44,7 @@ class UserResource extends Resource
                     ->password()
                     ->required()
                     ->label('Mật khẩu')
-                    ->maxLength(255),
+                    ->maxLength(30),
 
                 TextInput::make('password_confirmation')
                     ->password()
@@ -52,7 +52,7 @@ class UserResource extends Resource
                     ->label('Xác nhận mật khẩu')
                     ->same('password'),
 
-                Select::make('role') // Thêm trường vai trò
+                Select::make('role')
                     ->label('Vai trò')
                     ->options([
                         1 => 'Quản trị viên',
@@ -70,29 +70,22 @@ class UserResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->query(
-                User::query()
-                    ->orderByRaw("CASE WHEN email = 'admin@gmail.com' THEN 0 ELSE 1 END") // Admin lên đầu
-            )
             ->columns([
                 TextColumn::make('name')
                     ->label('Tên Người dùng')
-                    ->sortable() // Thêm khả năng sắp xếp
-                    ->searchable() // Thêm tìm kiếm
-                    ->extraAttributes(['class' => 'font-semibold text-gray-800']), // Tô đậm và đổi màu chữ
+                    ->sortable()
+                    ->searchable(),
 
                 TextColumn::make('email')
                     ->label('Email')
                     ->sortable()
-                    ->searchable()
-                    ->extraAttributes(['class' => 'text-indigo-600']), // Đổi màu email thành xanh
+                    ->searchable(),
 
-                // Loại bỏ TextInputColumn cho password vì không nên hiển thị trực tiếp
                 TextColumn::make('created_at')
                     ->label('Ngày tạo')
-                    ->dateTime('d/m/Y H:i') // Định dạng ngày giờ
+                    ->dateTime()
                     ->sortable()
-                    ->extraAttributes(['class' => 'text-gray-500']), // Màu xám nhạt
+
             ])
             ->filters([
                 //
