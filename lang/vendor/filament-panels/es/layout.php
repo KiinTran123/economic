@@ -6,10 +6,6 @@ return [
 
     'actions' => [
 
-        'billing' => [
-            'label' => 'Administrar suscripción',
-        ],
-
         'logout' => [
             'label' => 'Salir',
         ],
@@ -44,20 +40,8 @@ return [
                 'label' => 'A modo claro',
             ],
 
-            'system' => [
-                'label' => 'A modo del sistema',
-            ],
-
         ],
 
-    ],
-
-    'avatar' => [
-        'alt' => 'Avatar of :name',
-    ],
-
-    'logo' => [
-        'alt' => ':name logo',
     ],
 
 ];

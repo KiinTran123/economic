@@ -2,22 +2,9 @@
 
 return [
 
-    'title' => 'Acceso',
+    'title' => 'Login',
 
     'heading' => 'Entre a su cuenta',
-
-    'actions' => [
-
-        'register' => [
-            'before' => 'o',
-            'label' => 'Abrir una cuenta',
-        ],
-
-        'request_password_reset' => [
-            'label' => '¿Ha olvidado su contraseña?',
-        ],
-
-    ],
 
     'form' => [
 
@@ -53,7 +40,6 @@ return [
 
         'throttled' => [
             'title' => 'Demasiados intentos. Intente de nuevo en :seconds segundos.',
-            'body' => 'Intente de nuevo en :seconds segundos.',
         ],
 
     ],

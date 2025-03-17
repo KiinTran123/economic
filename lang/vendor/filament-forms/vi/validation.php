@@ -1,7 +1,6 @@
 <?php
 
 return [
-    'required' => 'Trường :attribute không được để trống.',
 
     'distinct' => [
         'must_be_selected' => 'Ít nhất một trường :attribute phải được chọn.',

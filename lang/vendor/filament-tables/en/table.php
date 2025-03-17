@@ -10,19 +10,8 @@ return [
 
     'columns' => [
 
-        'actions' => [
-            'label' => 'Action|Actions',
-        ],
-
         'text' => [
-
-            'actions' => [
-                'collapse_list' => 'Show :count less',
-                'expand_list' => 'Show :count more',
-            ],
-
             'more_list_items' => 'and :count more',
-
         ],
 
     ],
@@ -37,14 +26,10 @@ return [
             'label' => 'Select/deselect item :key for bulk actions.',
         ],
 
-        'bulk_select_group' => [
-            'label' => 'Select/deselect group :title for bulk actions.',
-        ],
-
         'search' => [
-            'label' => 'Search',
+            'label'       => 'Search',
             'placeholder' => 'Search',
-            'indicator' => 'Search',
+            'indicator'   => 'Search',
         ],
 
     ],
@@ -54,9 +39,9 @@ return [
         'heading' => 'Summary',
 
         'subheadings' => [
-            'all' => 'All :label',
+            'all'   => 'All :label',
             'group' => ':group summary',
-            'page' => 'This page',
+            'page'  => 'This page',
         ],
 
         'summarizers' => [
@@ -117,16 +102,12 @@ return [
 
         'actions' => [
 
-            'apply' => [
-                'label' => 'Apply filters',
-            ],
-
             'remove' => [
                 'label' => 'Remove filter',
             ],
 
             'remove_all' => [
-                'label' => 'Remove all filters',
+                'label'   => 'Remove all filters',
                 'tooltip' => 'Remove all filters',
             ],
 
@@ -167,7 +148,7 @@ return [
         'fields' => [
 
             'group' => [
-                'label' => 'Group by',
+                'label'       => 'Group by',
                 'placeholder' => 'Group by',
             ],
 
@@ -176,7 +157,7 @@ return [
                 'label' => 'Group direction',
 
                 'options' => [
-                    'asc' => 'Ascending',
+                    'asc'  => 'Ascending',
                     'desc' => 'Descending',
                 ],
 
@@ -219,7 +200,7 @@ return [
                 'label' => 'Sort direction',
 
                 'options' => [
-                    'asc' => 'Ascending',
+                    'asc'  => 'Ascending',
                     'desc' => 'Descending',
                 ],
 

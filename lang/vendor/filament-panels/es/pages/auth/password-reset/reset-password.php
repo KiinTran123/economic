@@ -6,14 +6,22 @@ return [
 
     'heading' => 'Restablecer su contraseña',
 
-    'form' => [
+    'buttons' => [
 
-        'email' => [
+        'reset' => [
             'label' => 'Restablecer contraseña',
         ],
 
+    ],
+
+    'fields' => [
+
+        'email' => [
+            'label' => 'Correo electrónico',
+        ],
+
         'password' => [
-            'label' => 'Contraseña',
+            'label'                => 'Contraseña',
             'validation_attribute' => 'contraseña',
         ],
 
@@ -21,21 +29,12 @@ return [
             'label' => 'Confirmar contraseña',
         ],
 
-        'actions' => [
-
-            'reset' => [
-                'label' => 'Restablecer contraseña',
-            ],
-
-        ],
-
     ],
 
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Demasiados intentos de restablecimiento',
-            'body' => 'Por favor, inténtelo de nuevo en :seconds segundos.',
+            'title' => 'Demasiados intentos de restablecimiento. Por favor, inténtelo de nuevo en :seconds segundos.',
         ],
 
     ],

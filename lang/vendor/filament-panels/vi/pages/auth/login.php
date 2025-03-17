@@ -4,7 +4,7 @@ return [
 
     'title' => 'Đăng nhập',
 
-    'heading' => 'Đăng nhập',
+    'heading' => 'Đăng nhập vào tài khoản của bạn',
 
     'actions' => [
 
@@ -22,7 +22,7 @@ return [
     'form' => [
 
         'email' => [
-            'label' => 'Địa chỉ email',
+            'label' => 'E-mail',
         ],
 
         'password' => [
@@ -45,15 +45,14 @@ return [
 
     'messages' => [
 
-        'failed' => 'Thông tin đăng nhập không chính xác.',
+        'failed' => 'E-mail hoặc mật khẩu không hợp lệ.',
 
     ],
 
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Quá nhiều lần đăng nhập thất bại',
-            'body' => 'Vui lòng thử lại sau :seconds giây.',
+            'title' => 'Đăng nhập sai quá nhiều lần. Vui lòng thử lại sau :seconds giây nữa.',
         ],
 
     ],

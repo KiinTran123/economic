@@ -10,11 +10,11 @@ return [
 
         'register' => [
             'before' => 'or',
-            'label' => 'sign up for an account',
+            'label'  => 'sign up for an account',
         ],
 
         'request_password_reset' => [
-            'label' => 'Forgot password?',
+            'label' => 'Forgotten your password?',
         ],
 
     ],
@@ -53,7 +53,7 @@ return [
 
         'throttled' => [
             'title' => 'Too many login attempts',
-            'body' => 'Please try again in :seconds seconds.',
+            'body'  => 'Please try again in :seconds seconds.',
         ],
 
     ],

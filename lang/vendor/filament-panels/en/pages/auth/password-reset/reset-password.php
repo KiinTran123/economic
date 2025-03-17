@@ -13,7 +13,7 @@ return [
         ],
 
         'password' => [
-            'label' => 'Password',
+            'label'                => 'Password',
             'validation_attribute' => 'password',
         ],
 
@@ -35,7 +35,7 @@ return [
 
         'throttled' => [
             'title' => 'Too many reset attempts',
-            'body' => 'Please try again in :seconds seconds.',
+            'body'  => 'Please try again in :seconds seconds.',
         ],
 
     ],

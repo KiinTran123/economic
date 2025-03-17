@@ -4,7 +4,7 @@ return [
 
     'title' => 'Reset your password',
 
-    'heading' => 'Forgot password?',
+    'heading' => 'Forgotten your password?',
 
     'actions' => [
 
@@ -34,7 +34,7 @@ return [
 
         'throttled' => [
             'title' => 'Too many requests',
-            'body' => 'Please try again in :seconds seconds.',
+            'body'  => 'Please try again in :seconds seconds.',
         ],
 
     ],
