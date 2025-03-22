@@ -47,4 +47,26 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    // Quan hệ với Giỏ hàng
+    public function cart()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
+    // Quan hệ với Địa chỉ giao hàng
+    public function shippingAddresses()
+    {
+        return $this->hasMany(ShippingAddress::class);
+    }
+
+    // Quan hệ với Thanh toán
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }
