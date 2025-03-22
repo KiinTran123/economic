@@ -1,4 +1,5 @@
-<div class="page-header">
+<div>
+  <div class="page-header">
     <!--=============== Navbar ===============-->
     <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent" id="page-navigation">
       <div class="container">
@@ -16,14 +17,15 @@
           <!-- Navbar Menu -->
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a href="shop.html" class="nav-link">Shop</a>
+              <a href="{{ route('shop') }}" class="nav-link">Cửa hàng</a>
             </li>
             <li class="nav-item">
-              <a href="register.html" class="nav-link">Register</a>
+              <a href="{{ route('register') }}" class="nav-link">Đăng ký</a>
             </li>
             <li class="nav-item">
-              <a href="login.html" class="nav-link">Login</a>
+              <a href="{{ route('login') }}" class="nav-link">Đăng nhập</a>
             </li>
+
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="avatar-header"><img src="assets/img/logo/avatar.jpg"></div> John Doe
@@ -109,3 +111,4 @@
       </div>
     </nav>
   </div>
+</div>
