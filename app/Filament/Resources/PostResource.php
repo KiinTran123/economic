@@ -13,8 +13,9 @@ use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\RichEditor;
-
+use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Columns\ImageColumn;
 
 class PostResource extends Resource
 {
@@ -29,18 +30,21 @@ class PostResource extends Resource
                 TextInput::make('title')
                     ->label('Tiêu đề')
                     ->required()
-                    ->maxLength(255)
-                    ->columnSpan(12),
+                    ->maxLength(255),
+
+                FileUpload::make('thumbnail')
+                    ->label('Ảnh đại diện')
+                    ->image()
+                    ->required(),
 
                 RichEditor::make('content')
                     ->label('Nội dung')
                     ->required()
-                    ->columnSpan(12),
+                    ->columnSpanFull(),
 
                 Toggle::make('is_active')
-                    ->columnSpan(12)
                     ->label('Trạng thái')
-                    ->helperText('Kích hoạt để bài viết có thể hiển thị.')
+                    ->helperText('Kích hoạt để bài viết có thể hiển thị.'),
             ]);
     }
 
@@ -48,9 +52,16 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('id')
+                    ->label('ID')
+                    ->sortable(),
+
                 TextColumn::make('title')
                     ->label('Tiêu đề')
                     ->sortable(),
+
+                ImageColumn::make('thumbnail')
+                    ->label('Ảnh đại diện'),
 
                 IconColumn::make('is_active')
                     ->label('Trạng thái')

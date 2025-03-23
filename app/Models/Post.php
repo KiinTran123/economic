@@ -12,5 +12,6 @@ class Post extends Model
         'title',
         'content',
         'is_active',
+        'thumbnail',
     ];
 }
