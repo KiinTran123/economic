@@ -8,10 +8,10 @@
         <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
             <div class="container">
                 <h1 class="pt-5">
-                    Your Cart
+                    Giỏ Hàng Của Bạn
                 </h1>
                 <p class="lead">
-                    Save time and leave the groceries to us.
+                    Tiết kiệm thời gian và để chúng tôi lo việc mua sắm.
                 </p>
             </div>
         </div>
@@ -26,10 +26,10 @@
                             <thead>
                                 <tr>
                                     <th width="10%"></th>
-                                    <th>Products</th>
-                                    <th>Price</th>
-                                    <th width="15%">Quantity</th>
-                                    <th>Subtotal</th>
+                                    <th>Sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th width="15%">Số lượng</th>
+                                    <th>Thành tiền</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -39,7 +39,7 @@
                                         <img src="assets/img/fish.jpg" width="60">
                                     </td>
                                     <td>
-                                        Ikan Segar<br>
+                                        Cá tươi<br>
                                         <small>1000g</small>
                                     </td>
                                     <td>
@@ -60,7 +60,7 @@
                                         <img src="assets/img/meats.jpg" width="60">
                                     </td>
                                     <td>
-                                        Sirloin<br>
+                                        Bít tết<br>
                                         <small>1000g</small>
                                     </td>
                                     <td>
@@ -81,7 +81,7 @@
                                         <img src="assets/img/vegetables.jpg" width="60">
                                     </td>
                                     <td>
-                                        Mix Vegetables<br>
+                                        Rau củ trộn<br>
                                         <small>1000g</small>
                                     </td>
                                     <td>
@@ -102,18 +102,18 @@
                     </div>
                 </div>
                 <div class="col">
-                    <a href="shop.html" class="btn btn-default">Continue Shopping</a>
+                    <a href="shop.html" class="btn btn-default">Tiếp tục mua sắm</a>
                 </div>
                 <div class="col text-right">
                     <div class="input-group w-50 float-right">
-                        <input class="form-control" placeholder="Coupon Code" type="text">
+                        <input class="form-control" placeholder="Mã giảm giá" type="text">
                         <div class="input-group-append">
-                            <button class="btn btn-default" type="button">Apply</button>
+                            <button class="btn btn-default" type="button">Áp dụng</button>
                         </div>
                     </div>
                     <div class="clearfix"></div>
-                    <h6 class="mt-3">Total: Rp 180.000</h6>
-                    <a href="checkout.html" class="btn btn-lg btn-primary">Checkout <i class="fa fa-long-arrow-right"></i></a>
+                    <h6 class="mt-3">Tổng cộng: Rp 180.000</h6>
+                    <a href="checkout.html" class="btn btn-lg btn-primary">Thanh toán <i class="fa fa-long-arrow-right"></i></a>
                 </div>
             </div>
         </div>

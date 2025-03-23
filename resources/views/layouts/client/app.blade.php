@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   <link href="{{ asset('assets/fonts/sb-bistro/sb-bistro.css') }} " rel="stylesheet" type="text/css">
   <link href="{{ asset('assets/fonts/font-awesome/font-awesome.css') }} " rel="stylesheet" type="text/css">
+  <link rel="icon" href="{{ asset('assets/img/logo/logo.png') }}" type="image/png">
 
   <link rel="stylesheet" type="text/css" media="all" href="{{ asset('assets/packages/bootstrap/bootstrap.css') }}  ">
   <link rel="stylesheet" type="text/css" media="all" href="{{ asset('assets/packages/o2system-ui/o2system-ui.css') }}  ">

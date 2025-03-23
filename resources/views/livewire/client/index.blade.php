@@ -13,11 +13,11 @@
         </video>
         <div class="container">
           <h1 class="pt-5">
-            Save time and leave the<br>
-            groceries to us.
+            Tiết kiệm thời gian và để chúng tôi lo việc<br>
+            mua sắm thực phẩm.
           </h1>
           <p class="lead">
-            Always Fresh Everyday.
+            Tươi ngon mỗi ngày.
           </p>
 
           <div class="row">
@@ -30,10 +30,10 @@
                 </div>
                 <div class="card-body">
                   <h4 class="card-title">
-                    Buy
+                    Mua Sắm
                   </h4>
                   <p class="card-text">
-                    Simply click-to-buy on the product you want and submit your order when you're done.
+                    Chỉ cần nhấp vào sản phẩm bạn muốn và gửi đơn hàng khi bạn đã sẵn sàng.
                   </p>
 
                 </div>
@@ -48,10 +48,10 @@
                 </div>
                 <div class="card-body">
                   <h4 class="card-title">
-                    Harvest
+                    Thu hoạch
                   </h4>
                   <p class="card-text">
-                    Our team ensures the produce quality is up to our standard and delivers to your door within 24 hours of harvest day.
+                    Đội ngũ của chúng tôi đảm bảo chất lượng sản phẩm đạt tiêu chuẩn và giao hàng đến tận cửa bạn trong vòng 24 giờ sau khi thu hoạch.
                   </p>
 
                 </div>
@@ -66,10 +66,10 @@
                 </div>
                 <div class="card-body">
                   <h4 class="card-title">
-                    Delivery
+                    Giao Hàng
                   </h4>
                   <p class="card-text">
-                    Farmers receive your orders two days in advance so they can prepare for harvest exactly as your orders – no wasted produce.
+                    Nông dân nhận đơn hàng của bạn trước hai ngày để chuẩn bị thu hoạch đúng theo yêu cầu của bạn – không có sản phẩm dư thừa.
                   </p>
                 </div>
               </div>
@@ -80,7 +80,7 @@
     </div>
 
     <section id="why">
-      <h2 class="title">Why Freschery</h2>
+      <h2 class="title">Tại sao chọn Freschery</h2>
       <div class="container">
         <div class="row">
           <div class="col-md-4">
@@ -92,10 +92,10 @@
               </div>
               <div class="card-body">
                 <h4 class="card-title">
-                  Straight from the Farm
+                  Trực Tiếp Từ Nông Trại
                 </h4>
                 <p class="card-text">
-                  Our farm-to-table concept emphasizes on getting the fresh produce directly from local farms to your tables within one day, hence you know you get the freshest produce straight from harvest.
+                  Khái niệm từ nông trại đến bàn ăn của chúng tôi nhấn mạnh việc đưa sản phẩm tươi ngon trực tiếp từ các nông trại địa phương đến tay bạn trong vòng một ngày, vì vậy bạn có thể yên tâm về chất lượng sản phẩm.
                 </p>
 
               </div>
@@ -110,10 +110,10 @@
               </div>
               <div class="card-body">
                 <h4 class="card-title">
-                  Know Your Farmers
+                  Biết Rõ Người Nông Dân Của Bạn
                 </h4>
                 <p class="card-text">
-                  We want you to know exactly who is growing your food by having the farmers profile on each item and farmers page. You’re welcome to visit the farms and see the love they put into growing your food.
+                  Chúng tôi muốn bạn biết rõ ai là người trồng thực phẩm cho bạn bằng cách hiển thị hồ sơ của các nông dân trên mỗi sản phẩm và trang của nông dân. Bạn có thể đến thăm các trang trại và thấy được tình yêu họ dành cho công việc trồng trọt.
                 </p>
 
               </div>
@@ -128,31 +128,30 @@
               </div>
               <div class="card-body">
                 <h4 class="card-title">
-                  Improving Farmers’ Livelihood
+                  Cải Thiện Đời Sống Nông Dân
                 </h4>
                 <p class="card-text">
-                  Slowly but sure, by cutting the complex supply chain and food system, we hope to improve the welfare of farmers by giving them the returns they deserve for their hard work.
+                  Dần dần, bằng cách cắt giảm chuỗi cung ứng phức tạp và hệ thống thực phẩm, chúng tôi hy vọng sẽ cải thiện đời sống của nông dân bằng cách mang lại cho họ những phần thưởng xứng đáng với công sức họ bỏ ra.
                 </p>
               </div>
             </div>
           </div>
 
           <div class="col-md-12 mt-5 text-center">
-            <a href="shop.html" class="btn btn-primary btn-lg">SHOP NOW</a>
+            <a href="shop.html" class="btn btn-primary btn-lg">MUA NGAY</a>
           </div>
         </div>
       </div>
     </section>
 
     <section id="categories" class="pb-0 gray-bg">
-      <h2 class="title">Categories</h2>
+      <h2 class="title">Danh Mục</h2>
       <div class="landing-categories owl-carousel">
         <div class="item">
           <div class="card rounded-0 border-0 text-center">
             <img src="assets/img/vegetables.jpg">
             <div class="card-img-overlay d-flex align-items-center justify-content-center">
-              <!-- <h4 class="card-title">Vegetables</h4> -->
-              <a href="shop.html" class="btn btn-primary btn-lg">Vegetables</a>
+              <a href="shop.html" class="btn btn-primary btn-lg">Rau Củ</a>
             </div>
           </div>
         </div>
@@ -160,8 +159,7 @@
           <div class="card rounded-0 border-0 text-center">
             <img src="assets/img/fruits.jpg">
             <div class="card-img-overlay d-flex align-items-center justify-content-center">
-              <!-- <h4 class="card-title">Fruits</h4> -->
-              <a href="shop.html" class="btn btn-primary btn-lg">Fruits</a>
+              <a href="shop.html" class="btn btn-primary btn-lg">Trái Cây</a>
             </div>
           </div>
         </div>
@@ -169,8 +167,7 @@
           <div class="card rounded-0 border-0 text-center">
             <img src="assets/img/meats.jpg">
             <div class="card-img-overlay d-flex align-items-center justify-content-center">
-              <!-- <h4 class="card-title">Meats</h4> -->
-              <a href="shop.html" class="btn btn-primary btn-lg">Meats</a>
+              <a href="shop.html" class="btn btn-primary btn-lg">Thịt</a>
             </div>
           </div>
         </div>
@@ -178,8 +175,7 @@
           <div class="card rounded-0 border-0 text-center">
             <img src="assets/img/fish.jpg">
             <div class="card-img-overlay d-flex align-items-center justify-content-center">
-              <!-- <h4 class="card-title">Fishes</h4> -->
-              <a href="shop.html" class="btn btn-primary btn-lg">Fishes</a>
+              <a href="shop.html" class="btn btn-primary btn-lg">Cá</a>
             </div>
           </div>
         </div>
@@ -187,8 +183,7 @@
           <div class="card rounded-0 border-0 text-center">
             <img src="assets/img/frozen.jpg">
             <div class="card-img-overlay d-flex align-items-center justify-content-center">
-              <!-- <h4 class="card-title">Frozen Foods</h4> -->
-              <a href="shop.html" class="btn btn-primary btn-lg">Frozen Foods</a>
+              <a href="shop.html" class="btn btn-primary btn-lg">Thực Phẩm Đông Lạnh</a>
             </div>
           </div>
         </div>
@@ -196,8 +191,7 @@
           <div class="card rounded-0 border-0 text-center">
             <img src="assets/img/package.jpg">
             <div class="card-img-overlay d-flex align-items-center justify-content-center">
-              <!-- <h4 class="card-title">Package</h4> -->
-              <a href="shop.html" class="btn btn-primary btn-lg">Package</a>
+              <a href="shop.html" class="btn btn-primary btn-lg">Gói Sản Phẩm</a>
             </div>
           </div>
         </div>

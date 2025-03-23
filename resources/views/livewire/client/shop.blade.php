@@ -8,14 +8,15 @@
         <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
             <div class="container">
                 <h1 class="pt-5">
-                    Shopping Page
+                    Trang Mua Sắm
                 </h1>
                 <p class="lead">
-                    Save time and leave the groceries to us.
+                    Tiết kiệm thời gian và để chúng tôi lo việc mua sắm cho bạn.
                 </p>
             </div>
         </div>
     </div>
+
 
     <div class="container">
         <div class="row">
@@ -26,8 +27,8 @@
                             <div class="media d-flex align-items-center justify-content-center">
                                 <span class="d-flex mr-2"><i class="sb-bistro-carrot"></i></span>
                                 <div class="media-body">
-                                    <h5>Vegetables</h5>
-                                    <p>Freshly Harvested Veggies From Local Growers</p>
+                                    <h5>Rau Củ</h5>
+                                    <p>Rau tươi mới thu hoạch từ những người trồng địa phương</p>
                                 </div>
                             </div>
                         </a>
@@ -37,8 +38,8 @@
                             <div class="media d-flex align-items-center justify-content-center">
                                 <span class="d-flex mr-2"><i class="sb-bistro-apple"></i></span>
                                 <div class="media-body">
-                                    <h5>Fruits</h5>
-                                    <p>Variety of Fruits From Local Growers</p>
+                                    <h5>Trái Cây</h5>
+                                    <p>Đa dạng các loại trái cây từ những người trồng địa phương</p>
                                 </div>
                             </div>
                         </a>
@@ -48,8 +49,8 @@
                             <div class="media d-flex align-items-center justify-content-center">
                                 <span class="d-flex mr-2"><i class="sb-bistro-roast-leg"></i></span>
                                 <div class="media-body">
-                                    <h5>Meats</h5>
-                                    <p>Protein Rich Ingridients From Local Farmers</p>
+                                    <h5>Thịt</h5>
+                                    <p>Nguyên liệu giàu protein từ những người nông dân địa phương</p>
                                 </div>
                             </div>
                         </a>
@@ -59,8 +60,8 @@
                             <div class="media d-flex align-items-center justify-content-center">
                                 <span class="d-flex mr-2"><i class="sb-bistro-fish-1"></i></span>
                                 <div class="media-body">
-                                    <h5>Fishes</h5>
-                                    <p>Protein Rich Ingridients From Local Farmers</p>
+                                    <h5>Cá</h5>
+                                    <p>Nguyên liệu giàu protein từ những người nông dân địa phương</p>
                                 </div>
                             </div>
                         </a>
@@ -70,8 +71,8 @@
                             <div class="media d-flex align-items-center justify-content-center">
                                 <span class="d-flex mr-2"><i class="sb-bistro-french-fries"></i></span>
                                 <div class="media-body">
-                                    <h5>Frozen Foods</h5>
-                                    <p>Protein Rich Ingridients From Local Farmers</p>
+                                    <h5>Thực Phẩm Đông Lạnh</h5>
+                                    <p>Nguyên liệu giàu protein từ những người nông dân địa phương</p>
                                 </div>
                             </div>
                         </a>
@@ -81,53 +82,52 @@
                             <div class="media d-flex align-items-center justify-content-center">
                                 <span class="d-flex mr-2"><i class="sb-bistro-appetizer"></i></span>
                                 <div class="media-body">
-                                    <h5>Packages</h5>
-                                    <p>Protein Rich Ingridients From Local Farmers</p>
+                                    <h5>Gói Sản Phẩm</h5>
+                                    <p>Nguyên liệu giàu protein từ những người nông dân địa phương</p>
                                 </div>
                             </div>
                         </a>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
-
     <section id="most-wanted">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="title">Most Wanted</h2>
+                    <h2 class="title">Sản Phẩm Được Yêu Thích Nhất</h2>
                     <div class="product-carousel owl-carousel">
                         <div class="item">
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
                                     <div class="card-badge-container left">
                                         <span class="badge badge-default">
-                                            Until 2018
+                                            Đến năm 2018
                                         </span>
                                         <span class="badge badge-primary">
-                                            20% OFF
+                                            Giảm 20%
                                         </span>
                                     </div>
                                     <img src="assets/img/meats.jpg" alt="Card image 2" class="card-img-top">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="detail-product.html">Product Title</a>
+                                        <a href="detail-product.html">Tiêu đề Sản Phẩm</a>
                                     </h4>
                                     <div class="card-price">
                                         <span class="discount">Rp. 300.000</span>
                                         <span class="reguler">Rp. 200.000</span>
                                     </div>
                                     <a href="detail-product.html" class="btn btn-block btn-primary">
-                                        Add to Cart
+                                        Thêm vào Giỏ Hàng
                                     </a>
-
                                 </div>
                             </div>
                         </div>
@@ -135,32 +135,31 @@
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
                                     <div class="card-badge-container left">
                                         <span class="badge badge-default">
-                                            Until 2018
+                                            Đến năm 2018
                                         </span>
                                         <span class="badge badge-primary">
-                                            20% OFF
+                                            Giảm 20%
                                         </span>
                                     </div>
                                     <img src="assets/img/fish.jpg" alt="Card image 2" class="card-img-top">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="detail-product.html">Product Title</a>
+                                        <a href="detail-product.html">Tiêu đề Sản Phẩm</a>
                                     </h4>
                                     <div class="card-price">
                                         <span class="discount">Rp. 300.000</span>
                                         <span class="reguler">Rp. 200.000</span>
                                     </div>
                                     <a href="detail-product.html" class="btn btn-block btn-primary">
-                                        Add to Cart
+                                        Thêm vào Giỏ Hàng
                                     </a>
-
                                 </div>
                             </div>
                         </div>
@@ -168,32 +167,31 @@
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
                                     <div class="card-badge-container left">
                                         <span class="badge badge-default">
-                                            Until 2018
+                                            Đến năm 2018
                                         </span>
                                         <span class="badge badge-primary">
-                                            20% OFF
+                                            Giảm 20%
                                         </span>
                                     </div>
                                     <img src="assets/img/vegetables.jpg" alt="Card image 2" class="card-img-top">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="detail-product.html">Product Title</a>
+                                        <a href="detail-product.html">Tiêu đề Sản Phẩm</a>
                                     </h4>
                                     <div class="card-price">
                                         <span class="discount">Rp. 300.000</span>
                                         <span class="reguler">Rp. 200.000</span>
                                     </div>
                                     <a href="detail-product.html" class="btn btn-block btn-primary">
-                                        Add to Cart
+                                        Thêm vào Giỏ Hàng
                                     </a>
-
                                 </div>
                             </div>
                         </div>
@@ -201,32 +199,31 @@
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
                                     <div class="card-badge-container left">
                                         <span class="badge badge-default">
-                                            Until 2018
+                                            Đến năm 2018
                                         </span>
                                         <span class="badge badge-primary">
-                                            20% OFF
+                                            Giảm 20%
                                         </span>
                                     </div>
                                     <img src="assets/img/frozen.jpg" alt="Card image 2" class="card-img-top">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="detail-product.html">Product Title</a>
+                                        <a href="detail-product.html">Tiêu đề Sản Phẩm</a>
                                     </h4>
                                     <div class="card-price">
                                         <span class="discount">Rp. 300.000</span>
                                         <span class="reguler">Rp. 200.000</span>
                                     </div>
                                     <a href="detail-product.html" class="btn btn-block btn-primary">
-                                        Add to Cart
+                                        Thêm vào Giỏ Hàng
                                     </a>
-
                                 </div>
                             </div>
                         </div>
@@ -234,37 +231,37 @@
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
                                     <div class="card-badge-container left">
                                         <span class="badge badge-default">
-                                            Until 2018
+                                            Đến năm 2018
                                         </span>
                                         <span class="badge badge-primary">
-                                            20% OFF
+                                            Giảm 20%
                                         </span>
                                     </div>
                                     <img src="assets/img/fruits.jpg" alt="Card image 2" class="card-img-top">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="detail-product.html">Product Title</a>
+                                        <a href="detail-product.html">Tiêu đề Sản Phẩm</a>
                                     </h4>
                                     <div class="card-price">
                                         <span class="discount">Rp. 300.000</span>
                                         <span class="reguler">Rp. 200.000</span>
                                     </div>
                                     <a href="detail-product.html" class="btn btn-block btn-primary">
-                                        Add to Cart
+                                        Thêm vào Giỏ Hàng
                                     </a>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -273,38 +270,37 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="title">Vegetables</h2>
+                    <h2 class="title">Rau Củ</h2>
                     <div class="product-carousel owl-carousel">
                         <div class="item">
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
                                     <div class="card-badge-container left">
                                         <span class="badge badge-default">
-                                            Until 2018
+                                            Đến năm 2018
                                         </span>
                                         <span class="badge badge-primary">
-                                            20% OFF
+                                            Giảm 20%
                                         </span>
                                     </div>
                                     <img src="assets/img/meats.jpg" alt="Card image 2" class="card-img-top">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="detail-product.html">Product Title</a>
+                                        <a href="detail-product.html">Tiêu đề Sản Phẩm</a>
                                     </h4>
                                     <div class="card-price">
                                         <span class="discount">Rp. 300.000</span>
                                         <span class="reguler">Rp. 200.000</span>
                                     </div>
                                     <a href="detail-product.html" class="btn btn-block btn-primary">
-                                        Add to Cart
+                                        Thêm vào Giỏ Hàng
                                     </a>
-
                                 </div>
                             </div>
                         </div>
@@ -312,32 +308,31 @@
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
                                     <div class="card-badge-container left">
                                         <span class="badge badge-default">
-                                            Until 2018
+                                            Đến năm 2018
                                         </span>
                                         <span class="badge badge-primary">
-                                            20% OFF
+                                            Giảm 20%
                                         </span>
                                     </div>
                                     <img src="assets/img/fish.jpg" alt="Card image 2" class="card-img-top">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="detail-product.html">Product Title</a>
+                                        <a href="detail-product.html">Tiêu đề Sản Phẩm</a>
                                     </h4>
                                     <div class="card-price">
                                         <span class="discount">Rp. 300.000</span>
                                         <span class="reguler">Rp. 200.000</span>
                                     </div>
                                     <a href="detail-product.html" class="btn btn-block btn-primary">
-                                        Add to Cart
+                                        Thêm vào Giỏ Hàng
                                     </a>
-
                                 </div>
                             </div>
                         </div>
@@ -345,32 +340,31 @@
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
                                     <div class="card-badge-container left">
                                         <span class="badge badge-default">
-                                            Until 2018
+                                            Đến năm 2018
                                         </span>
                                         <span class="badge badge-primary">
-                                            20% OFF
+                                            Giảm 20%
                                         </span>
                                     </div>
                                     <img src="assets/img/vegetables.jpg" alt="Card image 2" class="card-img-top">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="detail-product.html">Product Title</a>
+                                        <a href="detail-product.html">Tiêu đề Sản Phẩm</a>
                                     </h4>
                                     <div class="card-price">
                                         <span class="discount">Rp. 300.000</span>
                                         <span class="reguler">Rp. 200.000</span>
                                     </div>
                                     <a href="detail-product.html" class="btn btn-block btn-primary">
-                                        Add to Cart
+                                        Thêm vào Giỏ Hàng
                                     </a>
-
                                 </div>
                             </div>
                         </div>
@@ -378,32 +372,31 @@
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
                                     <div class="card-badge-container left">
                                         <span class="badge badge-default">
-                                            Until 2018
+                                            Đến năm 2018
                                         </span>
                                         <span class="badge badge-primary">
-                                            20% OFF
+                                            Giảm 20%
                                         </span>
                                     </div>
                                     <img src="assets/img/frozen.jpg" alt="Card image 2" class="card-img-top">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="detail-product.html">Product Title</a>
+                                        <a href="detail-product.html">Tiêu đề Sản Phẩm</a>
                                     </h4>
                                     <div class="card-price">
                                         <span class="discount">Rp. 300.000</span>
                                         <span class="reguler">Rp. 200.000</span>
                                     </div>
                                     <a href="detail-product.html" class="btn btn-block btn-primary">
-                                        Add to Cart
+                                        Thêm vào Giỏ Hàng
                                     </a>
-
                                 </div>
                             </div>
                         </div>
@@ -411,37 +404,37 @@
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
                                     <div class="card-badge-container left">
                                         <span class="badge badge-default">
-                                            Until 2018
+                                            Đến năm 2018
                                         </span>
                                         <span class="badge badge-primary">
-                                            20% OFF
+                                            Giảm 20%
                                         </span>
                                     </div>
                                     <img src="assets/img/fruits.jpg" alt="Card image 2" class="card-img-top">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="detail-product.html">Product Title</a>
+                                        <a href="detail-product.html">Tiêu đề Sản Phẩm</a>
                                     </h4>
                                     <div class="card-price">
                                         <span class="discount">Rp. 300.000</span>
                                         <span class="reguler">Rp. 200.000</span>
                                     </div>
                                     <a href="detail-product.html" class="btn btn-block btn-primary">
-                                        Add to Cart
+                                        Thêm vào Giỏ Hàng
                                     </a>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -450,38 +443,37 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="title">Meats</h2>
+                    <h2 class="title">Thịt</h2>
                     <div class="product-carousel owl-carousel">
                         <div class="item">
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
                                     <div class="card-badge-container left">
                                         <span class="badge badge-default">
-                                            Until 2018
+                                            Đến năm 2018
                                         </span>
                                         <span class="badge badge-primary">
-                                            20% OFF
+                                            Giảm 20%
                                         </span>
                                     </div>
                                     <img src="assets/img/meats.jpg" alt="Card image 2" class="card-img-top">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="detail-product.html">Product Title</a>
+                                        <a href="detail-product.html">Tiêu đề Sản Phẩm</a>
                                     </h4>
                                     <div class="card-price">
                                         <span class="discount">Rp. 300.000</span>
                                         <span class="reguler">Rp. 200.000</span>
                                     </div>
                                     <a href="detail-product.html" class="btn btn-block btn-primary">
-                                        Add to Cart
+                                        Thêm vào Giỏ Hàng
                                     </a>
-
                                 </div>
                             </div>
                         </div>
@@ -489,32 +481,31 @@
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
                                     <div class="card-badge-container left">
                                         <span class="badge badge-default">
-                                            Until 2018
+                                            Đến năm 2018
                                         </span>
                                         <span class="badge badge-primary">
-                                            20% OFF
+                                            Giảm 20%
                                         </span>
                                     </div>
                                     <img src="assets/img/fish.jpg" alt="Card image 2" class="card-img-top">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="detail-product.html">Product Title</a>
+                                        <a href="detail-product.html">Tiêu đề Sản Phẩm</a>
                                     </h4>
                                     <div class="card-price">
                                         <span class="discount">Rp. 300.000</span>
                                         <span class="reguler">Rp. 200.000</span>
                                     </div>
                                     <a href="detail-product.html" class="btn btn-block btn-primary">
-                                        Add to Cart
+                                        Thêm vào Giỏ Hàng
                                     </a>
-
                                 </div>
                             </div>
                         </div>
@@ -522,32 +513,31 @@
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
                                     <div class="card-badge-container left">
                                         <span class="badge badge-default">
-                                            Until 2018
+                                            Đến năm 2018
                                         </span>
                                         <span class="badge badge-primary">
-                                            20% OFF
+                                            Giảm 20%
                                         </span>
                                     </div>
                                     <img src="assets/img/vegetables.jpg" alt="Card image 2" class="card-img-top">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="detail-product.html">Product Title</a>
+                                        <a href="detail-product.html">Tiêu đề Sản Phẩm</a>
                                     </h4>
                                     <div class="card-price">
                                         <span class="discount">Rp. 300.000</span>
                                         <span class="reguler">Rp. 200.000</span>
                                     </div>
                                     <a href="detail-product.html" class="btn btn-block btn-primary">
-                                        Add to Cart
+                                        Thêm vào Giỏ Hàng
                                     </a>
-
                                 </div>
                             </div>
                         </div>
@@ -555,32 +545,31 @@
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
                                     <div class="card-badge-container left">
                                         <span class="badge badge-default">
-                                            Until 2018
+                                            Đến năm 2018
                                         </span>
                                         <span class="badge badge-primary">
-                                            20% OFF
+                                            Giảm 20%
                                         </span>
                                     </div>
                                     <img src="assets/img/frozen.jpg" alt="Card image 2" class="card-img-top">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="detail-product.html">Product Title</a>
+                                        <a href="detail-product.html">Tiêu đề Sản Phẩm</a>
                                     </h4>
                                     <div class="card-price">
                                         <span class="discount">Rp. 300.000</span>
                                         <span class="reguler">Rp. 200.000</span>
                                     </div>
                                     <a href="detail-product.html" class="btn btn-block btn-primary">
-                                        Add to Cart
+                                        Thêm vào Giỏ Hàng
                                     </a>
-
                                 </div>
                             </div>
                         </div>
@@ -588,37 +577,37 @@
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
                                     <div class="card-badge-container left">
                                         <span class="badge badge-default">
-                                            Until 2018
+                                            Đến năm 2018
                                         </span>
                                         <span class="badge badge-primary">
-                                            20% OFF
+                                            Giảm 20%
                                         </span>
                                     </div>
                                     <img src="assets/img/fruits.jpg" alt="Card image 2" class="card-img-top">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="detail-product.html">Product Title</a>
+                                        <a href="detail-product.html">Tiêu đề Sản Phẩm</a>
                                     </h4>
                                     <div class="card-price">
                                         <span class="discount">Rp. 300.000</span>
                                         <span class="reguler">Rp. 200.000</span>
                                     </div>
                                     <a href="detail-product.html" class="btn btn-block btn-primary">
-                                        Add to Cart
+                                        Thêm vào Giỏ Hàng
                                     </a>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -627,13 +616,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="title">Fishes</h2>
+                    <h2 class="title">Cá</h2>
                     <div class="product-carousel owl-carousel">
                         <div class="item">
                             <div class="card card-product">
                                 <div class="card-ribbon">
                                     <div class="card-ribbon-container right">
-                                        <span class="ribbon ribbon-primary">SPECIAL</span>
+                                        <span class="ribbon ribbon-primary">Đặt biệt</span>
                                     </div>
                                 </div>
                                 <div class="card-badge">
@@ -804,7 +793,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="title">Fruits</h2>
+                    <h2 class="title">Trái cây</h2>
                     <div class="product-carousel owl-carousel">
                         <div class="item">
                             <div class="card card-product">

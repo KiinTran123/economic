@@ -1,4 +1,6 @@
-@extends('layouts.client.app') @section('title', 'Đăng ký')
+@extends('layouts.client.app') 
+@section('title', 'Đăng ký')
+
 @section('content')
 <div id="page-content" class="page-content">
     <div class="banner">
@@ -6,8 +8,8 @@
             class="jumbotron jumbotron-bg text-center rounded-0"
             style="background-image: url('assets/img/bg-header.jpg')">
             <div class="container">
-                <h1 class="pt-5">Register Page</h1>
-                <p class="lead">Save time and leave the groceries to us.</p>
+                <h1 class="pt-5">Trang Đăng Ký</h1>
+                <p class="lead">Tiết kiệm thời gian và để chúng tôi lo việc mua sắm thực phẩm cho bạn.</p>
 
                 <div class="card card-login mb-5">
                     <div class="card-body">
@@ -18,7 +20,7 @@
                                         class="form-control"
                                         type="text"
                                         required=""
-                                        placeholder="Full Name" />
+                                        placeholder="Họ và Tên" />
                                 </div>
                             </div>
                             <div class="form-group row mt-3">
@@ -36,7 +38,7 @@
                                         class="form-control"
                                         type="phone"
                                         required=""
-                                        placeholder="Phone" />
+                                        placeholder="Số điện thoại" />
                                 </div>
                             </div>
                             <div class="form-group row mt-3">
@@ -45,7 +47,7 @@
                                         class="form-control"
                                         type="text"
                                         required=""
-                                        placeholder="Username" />
+                                        placeholder="Tên người dùng" />
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -54,7 +56,7 @@
                                         class="form-control"
                                         type="password"
                                         required=""
-                                        placeholder="Password" />
+                                        placeholder="Mật khẩu" />
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -63,7 +65,7 @@
                                         class="form-control"
                                         type="password"
                                         required=""
-                                        placeholder="Confirm Password" />
+                                        placeholder="Xác nhận mật khẩu" />
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -73,10 +75,10 @@
                                             id="checkbox0"
                                             type="checkbox"
                                             name="terms" />
-                                        <label for="checkbox0" class="mb-0">I Agree with
+                                        <label for="checkbox0" class="mb-0">Tôi đồng ý với
                                             <a
                                                 href="terms.html"
-                                                class="text-light">Terms & Conditions</a>
+                                                class="text-light">Điều khoản & Điều kiện</a>
                                         </label>
                                     </div>
                                 </div>
@@ -86,7 +88,7 @@
                                     <button
                                         type="submit"
                                         class="btn btn-primary btn-block text-uppercase">
-                                        Register
+                                        Đăng ký
                                     </button>
                                 </div>
                             </div>

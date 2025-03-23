@@ -7,10 +7,10 @@
         <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
             <div class="container">
                 <h1 class="pt-5">
-                    About Us
+                    Về chúng tôi
                 </h1>
                 <p class="lead">
-                    Save time and leave the groceries to us.
+                    Tiết kiệm thời gian và để chúng tôi lo việc mua sắm.
                 </p>
             </div>
         </div>
@@ -22,7 +22,7 @@
                 <div class="col-md-8 text-center mb-3">
                     <h1 class="title text-uppercase mb-2">Freshcery</h1>
                     <h5>
-                        Groceries Organic Store
+                        Cửa hàng thực phẩm hữu cơ
                     </h5>
                 </div>
                 <div class="col-md-10">
@@ -38,16 +38,16 @@
                 </div>
                 <div class="col-md-6">
                     <h5>
-                        Straight from the Farm
+                        Trực tiếp từ nông trại
                     </h5>
                     <p>
-                        Our farm-to-table concept emphasizes on getting the fresh produce directly from local farms to your tables within one day, hence you know you get the freshest produce straight from harvest.
+                        Khái niệm farm-to-table của chúng tôi nhấn mạnh vào việc mang lại sản phẩm tươi ngon trực tiếp từ các trang trại địa phương đến bàn ăn của bạn trong vòng một ngày, vì vậy bạn biết rằng mình sẽ nhận được sản phẩm tươi nhất ngay từ khi thu hoạch.
                     </p>
                     <p>
-                        Our farm-to-table concept emphasizes on getting the fresh produce directly from local farms to your tables within one day, hence you know you get the freshest produce straight from harvest.
+                        Khái niệm farm-to-table của chúng tôi nhấn mạnh vào việc mang lại sản phẩm tươi ngon trực tiếp từ các trang trại địa phương đến bàn ăn của bạn trong vòng một ngày, vì vậy bạn biết rằng mình sẽ nhận được sản phẩm tươi nhất ngay từ khi thu hoạch.
                     </p>
                     <p>
-                        Our farm-to-table concept emphasizes on getting the fresh produce directly from local farms to your tables within one day, hence you know you get the freshest produce straight from harvest.
+                        Khái niệm farm-to-table của chúng tôi nhấn mạnh vào việc mang lại sản phẩm tươi ngon trực tiếp từ các trang trại địa phương đến bàn ăn của bạn trong vòng một ngày, vì vậy bạn biết rằng mình sẽ nhận được sản phẩm tươi nhất ngay từ khi thu hoạch.
                     </p>
                 </div>
             </div>
@@ -55,16 +55,16 @@
             <div class="row justify-content-center align-items-center text-right mt-3">
                 <div class="col-md-6">
                     <h5>
-                        Know Your Farmers
+                        Biết về người nông dân của bạn
                     </h5>
                     <p>
-                        We want you to know exactly who is growing your food by having the farmers profile on each item and farmers page. You’re welcome to visit the farms and see the love they put into growing your food.
+                        Chúng tôi muốn bạn biết chính xác ai là người trồng thực phẩm cho bạn thông qua việc có hồ sơ của người nông dân trên mỗi sản phẩm và trang của người nông dân. Bạn có thể thăm các trang trại và nhìn thấy tình yêu mà họ dành cho việc trồng trọt thực phẩm.
                     </p>
                     <p>
-                        We want you to know exactly who is growing your food by having the farmers profile on each item and farmers page. You’re welcome to visit the farms and see the love they put into growing your food.
+                        Chúng tôi muốn bạn biết chính xác ai là người trồng thực phẩm cho bạn thông qua việc có hồ sơ của người nông dân trên mỗi sản phẩm và trang của người nông dân. Bạn có thể thăm các trang trại và nhìn thấy tình yêu mà họ dành cho việc trồng trọt thực phẩm.
                     </p>
                     <p>
-                        We want you to know exactly who is growing your food by having the farmers profile on each item and farmers page. You’re welcome to visit the farms and see the love they put into growing your food.
+                        Chúng tôi muốn bạn biết chính xác ai là người trồng thực phẩm cho bạn thông qua việc có hồ sơ của người nông dân trên mỗi sản phẩm và trang của người nông dân. Bạn có thể thăm các trang trại và nhìn thấy tình yêu mà họ dành cho việc trồng trọt thực phẩm.
                     </p>
                 </div>
                 <div class="col-md-4">
@@ -78,16 +78,16 @@
                 </div>
                 <div class="col-md-6">
                     <h5>
-                        Improving Farmers’ Livelihood
+                        Cải thiện đời sống người nông dân
                     </h5>
                     <p>
-                        Slowly but sure, by cutting the complex supply chain and food system, we hope to improve the welfare of farmers by giving them the returns they deserve for their hard work.
+                        Dần dần nhưng chắc chắn, bằng cách cắt giảm chuỗi cung ứng và hệ thống thực phẩm phức tạp, chúng tôi hy vọng sẽ cải thiện phúc lợi của người nông dân bằng cách mang lại cho họ những khoản thu nhập xứng đáng với công sức họ bỏ ra.
                     </p>
                     <p>
-                        Slowly but sure, by cutting the complex supply chain and food system, we hope to improve the welfare of farmers by giving them the returns they deserve for their hard work.
+                        Dần dần nhưng chắc chắn, bằng cách cắt giảm chuỗi cung ứng và hệ thống thực phẩm phức tạp, chúng tôi hy vọng sẽ cải thiện phúc lợi của người nông dân bằng cách mang lại cho họ những khoản thu nhập xứng đáng với công sức họ bỏ ra.
                     </p>
                     <p>
-                        Slowly but sure, by cutting the complex supply chain and food system, we hope to improve the welfare of farmers by giving them the returns they deserve for their hard work.
+                        Dần dần nhưng chắc chắn, bằng cách cắt giảm chuỗi cung ứng và hệ thống thực phẩm phức tạp, chúng tôi hy vọng sẽ cải thiện phúc lợi của người nông dân bằng cách mang lại cho họ những khoản thu nhập xứng đáng với công sức họ bỏ ra.
                     </p>
                 </div>
             </div>

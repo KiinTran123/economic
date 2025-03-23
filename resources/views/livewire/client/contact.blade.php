@@ -7,10 +7,10 @@
         <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
             <div class="container">
                 <h1 class="pt-5">
-                    Contact
+                    Liên hệ
                 </h1>
                 <p class="lead">
-                    Don't Hesitate to Contact Us.
+                    Đừng ngần ngại liên hệ với chúng tôi.
                 </p>
             </div>
         </div>
@@ -22,12 +22,12 @@
                 <div class="row mt-3">
                     <div class="col-lg-7">
                         <div class="contact-wrapper">
-                            <h3 class="title font-weight-normal mt-0 text-left">Send Us a Message</h3>
+                            <h3 class="title font-weight-normal mt-0 text-left">Gửi chúng tôi một tin nhắn</h3>
                             <form data-aos="fade-left" data-aos-duration="1200">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <input class="form-control" type="text" placeholder="Full Name">
+                                            <input class="form-control" type="text" placeholder="Họ và tên">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -37,11 +37,11 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <textarea class="form-control" rows="3" placeholder="Message"></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="Tin nhắn"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 text-right">
-                                        <button type="submit" class="btn btn-lg btn-primary mb-5">Send</button>
+                                        <button type="submit" class="btn btn-lg btn-primary mb-5">Gửi</button>
                                     </div>
                                 </div>
                             </form>
@@ -50,7 +50,7 @@
                     <div class="col-lg-5">
                         <div class="detail-wrapper p-5 bg-primary">
                             <h3 class="font-weight-normal mb-3 text-light">
-                                Freshcery Headquarter
+                                Trụ sở Freshcery
                             </h3>
 
                             <p class="text-light">

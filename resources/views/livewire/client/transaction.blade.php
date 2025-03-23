@@ -7,10 +7,10 @@
         <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
             <div class="container">
                 <h1 class="pt-5">
-                    Your Transactions
+                    Giao Dịch Của Bạn
                 </h1>
                 <p class="lead">
-                    Save time and leave the groceries to us.
+                    Tiết kiệm thời gian và để chúng tôi lo việc mua sắm.
                 </p>
             </div>
         </div>
@@ -25,10 +25,10 @@
                             <thead>
                                 <tr>
                                     <th width="5%"></th>
-                                    <th>Invoice</th>
-                                    <th>Date</th>
-                                    <th>Total</th>
-                                    <th>Status</th>
+                                    <th>Mã Hóa Đơn</th>
+                                    <th>Ngày</th>
+                                    <th>Tổng Tiền</th>
+                                    <th>Trạng Thái</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -45,11 +45,11 @@
                                         Rp 200.000
                                     </td>
                                     <td>
-                                        Delivered
+                                        Đã giao
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#detailModal">
-                                            Detail
+                                            Chi tiết
                                         </button>
                                     </td>
                                 </tr>
@@ -59,11 +59,11 @@
 
                     <nav aria-label="Page navigation">
                         <ul class="pagination justify-content-center">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Trước</a></li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Tiếp theo</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -76,8 +76,8 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">No. Pesanan : AL121N8H2XQB47</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title" id="exampleModalLabel">Số Đơn Hàng: AL121N8H2XQB47</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -85,7 +85,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <p>
-                                <strong>Billing Detail:</strong><br>
+                                <strong>Thông Tin Thanh Toán:</strong><br>
                                 Teguh Rianto<br>
                                 Jl. Petani No. 159, Cibabat<br>
                                 Cimahi Utara<br>
@@ -95,13 +95,13 @@
                         </div>
                         <div class="col-md-6">
                             <p>
-                                <strong>Payment Method:</strong><br>
-                                Direct Transfer to<br>
-                                Bank: BCA<br>
-                                No Rek.: 72133236179
+                                <strong>Phương Thức Thanh Toán:</strong><br>
+                                Chuyển Khoản Trực Tiếp<br>
+                                Ngân Hàng: BCA<br>
+                                Số Tài Khoản: 72133236179
                             </p>
                             <p>
-                                <strong>Batas Pembayaran</strong><br>
+                                <strong>Thời Gian Thanh Toán:</strong><br>
                                 14-12-2017 17:55 GMT+7
                             </p>
                         </div>
@@ -109,20 +109,20 @@
                     <div class="row">
                         <div class="col-md-12">
                             <p>
-                                <strong>Your Order:</strong>
+                                <strong>Đơn Hàng Của Bạn:</strong>
                             </p>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Products</th>
-                                            <th class="text-right">Subtotal</th>
+                                            <th>Sản Phẩm</th>
+                                            <th class="text-right">Tổng Tiền</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>
-                                                Ikan Segar x1
+                                                Cá Tươi x1
                                             </td>
                                             <td class="text-right">
                                                 Rp 30.000
@@ -138,7 +138,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                Mix Vegetables x1
+                                                Rau Củ Xanh x1
                                             </td>
                                             <td class="text-right">
                                                 Rp 30.000
@@ -148,7 +148,7 @@
                                     <tfooter>
                                         <tr>
                                             <td>
-                                                <strong>Cart Subtotal</strong>
+                                                <strong>Tổng Tiền Giỏ Hàng</strong>
                                             </td>
                                             <td class="text-right">
                                                 Rp 180.000
@@ -156,7 +156,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <strong>Shipping</strong>
+                                                <strong>Phí Vận Chuyển</strong>
                                             </td>
                                             <td class="text-right">
                                                 Rp 20.000
@@ -164,7 +164,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <strong>ORDER TOTAL</strong>
+                                                <strong>TỔNG ĐƠN HÀNG</strong>
                                             </td>
                                             <td class="text-right">
                                                 <strong>Rp 200.000</strong>
@@ -177,7 +177,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                 </div>
             </div>
         </div>

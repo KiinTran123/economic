@@ -7,10 +7,10 @@
         <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
             <div class="container">
                 <h1 class="pt-5">
-                    Checkout
+                    Thanh Toán
                 </h1>
                 <p class="lead">
-                    Save time and leave the groceries to us.
+                    Tiết kiệm thời gian và để chúng tôi lo việc mua sắm.
                 </p>
             </div>
         </div>
@@ -20,66 +20,66 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-7">
-                    <h5 class="mb-3">BILLING DETAILS</h5>
-                    <!-- Bill Detail of the Page -->
+                    <h5 class="mb-3">THÔNG TIN HÓA ĐƠN</h5>
+                    <!-- Thông tin hóa đơn -->
                     <form action="#" class="bill-detail">
                         <fieldset>
                             <div class="form-group row">
                                 <div class="col">
-                                    <input class="form-control" placeholder="Name" type="text">
+                                    <input class="form-control" placeholder="Họ và tên" type="text">
                                 </div>
                                 <div class="col">
-                                    <input class="form-control" placeholder="Last Name" type="text">
+                                    <input class="form-control" placeholder="Họ" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Company Name" type="text">
+                                <input class="form-control" placeholder="Tên công ty" type="text">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" placeholder="Address"></textarea>
+                                <textarea class="form-control" placeholder="Địa chỉ"></textarea>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Town / City" type="text">
+                                <input class="form-control" placeholder="Thành phố" type="text">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="State / Country" type="text">
+                                <input class="form-control" placeholder="Tỉnh / Quốc gia" type="text">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Postcode / Zip" type="text">
+                                <input class="form-control" placeholder="Mã bưu điện" type="text">
                             </div>
                             <div class="form-group row">
                                 <div class="col">
-                                    <input class="form-control" placeholder="Email Address" type="email">
+                                    <input class="form-control" placeholder="Địa chỉ Email" type="email">
                                 </div>
                                 <div class="col">
-                                    <input class="form-control" placeholder="Phone Number" type="tel">
+                                    <input class="form-control" placeholder="Số điện thoại" type="tel">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox"> Ship to a different address?
+                                <input type="checkbox"> Gửi đến địa chỉ khác?
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" placeholder="Order Notes"></textarea>
+                                <textarea class="form-control" placeholder="Ghi chú đơn hàng"></textarea>
                             </div>
                         </fieldset>
                     </form>
-                    <!-- Bill Detail of the Page end -->
+                    <!-- Thông tin hóa đơn kết thúc -->
                 </div>
                 <div class="col-xs-12 col-sm-5">
                     <div class="holder">
-                        <h5 class="mb-3">YOUR ORDER</h5>
+                        <h5 class="mb-3">ĐƠN HÀNG CỦA BẠN</h5>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Products</th>
-                                        <th class="text-right">Subtotal</th>
+                                        <th>Sản phẩm</th>
+                                        <th class="text-right">Thành tiền</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>
-                                            Ikan Segar x1
+                                            Cá tươi x1
                                         </td>
                                         <td class="text-right">
                                             Rp 30.000
@@ -87,7 +87,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Sirloin x1
+                                            Bít tết x1
                                         </td>
                                         <td class="text-right">
                                             Rp 120.000
@@ -95,7 +95,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Mix Vegetables x1
+                                            Rau củ trộn x1
                                         </td>
                                         <td class="text-right">
                                             Rp 30.000
@@ -105,7 +105,7 @@
                                 <tfooter>
                                     <tr>
                                         <td>
-                                            <strong>Cart Subtotal</strong>
+                                            <strong>Tổng giỏ hàng</strong>
                                         </td>
                                         <td class="text-right">
                                             Rp 180.000
@@ -113,7 +113,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <strong>Shipping</strong>
+                                            <strong>Phí vận chuyển</strong>
                                         </td>
                                         <td class="text-right">
                                             Rp 20.000
@@ -121,7 +121,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <strong>ORDER TOTAL</strong>
+                                            <strong>TỔNG ĐƠN HÀNG</strong>
                                         </td>
                                         <td class="text-right">
                                             <strong>Rp 200.000</strong>
@@ -131,24 +131,24 @@
                             </table>
                         </div>
 
-                        <h5 class="mb-3">PAYMENT METHODS</h5>
+                        <h5 class="mb-3">PHƯƠNG THỨC THANH TOÁN</h5>
                         <div class="form-check-inline">
                             <label class="form-check-label">
                                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                Direct Bank Transfer
+                                Chuyển khoản ngân hàng trực tiếp
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
                                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                Credit Card
+                                Thẻ tín dụng
                             </label>
                         </div>
                     </div>
                     <p class="text-right mt-3">
-                        <input checked="" type="checkbox"> I’ve read &amp; accept the <a href="#">terms &amp; conditions</a>
+                        <input checked="" type="checkbox"> Tôi đã đọc và đồng ý với <a href="#">điều khoản & điều kiện</a>
                     </p>
-                    <a href="#" class="btn btn-primary float-right">PROCEED TO CHECKOUT <i class="fa fa-check"></i></a>
+                    <a href="#" class="btn btn-primary float-right">TIẾP TỤC THANH TOÁN <i class="fa fa-check"></i></a>
                     <div class="clearfix">
                     </div>
                 </div>
