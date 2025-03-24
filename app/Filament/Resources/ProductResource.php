@@ -17,6 +17,9 @@ use Filament\Tables\Filters\SelectFilter;
 use App\Models\Category;
 use Filament\Tables\Columns\TextInputColumn;
 use Filament\Forms\Components\Select;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 
 class ProductResource extends Resource
 {
@@ -42,20 +45,24 @@ class ProductResource extends Resource
           ->numeric()
           ->prefix('VNĐ'),
 
+        FileUpload::make('images')
+          ->multiple()
+          ->label('Hình ảnh'),
+
         TextInput::make('quantity')
           ->label('Số lượng')
           ->required()
           ->numeric()
-          ->default(0),
+          ->default(1),
+
+        RichEditor::make('description')
+          ->label('Chi tiết sản phẩm')
+          ->columnSpanFull(),
 
         Select::make('category_id')
           ->label('Chọn Danh mục')
           ->options(Category::query()->pluck('name', 'id'))
           ->required(),
-
-        Textarea::make('description')
-          ->label('Chi tiết sản phẩm')
-          ->columnSpanFull(),
 
         Toggle::make('is_active')
           ->label('Trạng thái')
@@ -66,9 +73,21 @@ class ProductResource extends Resource
   {
     return $table
       ->columns([
+        TextColumn::make('id')
+          ->sortable()
+          ->label('ID'),
+
         TextInputColumn::make('name')
           ->searchable()
           ->label('Tên sản phẩm'),
+
+        ImageColumn::make('images')
+          ->label('Hình ảnh')
+          ->stacked()
+          ->circular()
+          ->limit(3)
+          ->limitedRemainingText(),
+
         TextColumn::make('price')
           ->money()
           ->sortable()
@@ -116,6 +135,7 @@ class ProductResource extends Resource
       ])
       ->actions([
         Tables\Actions\EditAction::make(),
+        Tables\Actions\DeleteAction::make(),
       ])
       ->bulkActions([
         Tables\Actions\BulkActionGroup::make([
@@ -137,8 +157,8 @@ class ProductResource extends Resource
   {
     return [
       'index' => Pages\ListProducts::route('/'),
-      // 'create' => Pages\CreateProduct::route('/create'),
-      // 'edit' => Pages\EditProduct::route('/{record}/edit'),
+      'create' => Pages\CreateProduct::route('/create'),
+      'edit' => Pages\EditProduct::route('/{record}/edit'),
     ];
   }
 

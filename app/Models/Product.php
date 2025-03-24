@@ -13,8 +13,12 @@ class Product extends Model
         'category_id',
         'description',
         'is_active',
+        'images'
     ];
 
+    protected $casts = [
+        'images' => 'array',
+    ];
 
     public function category()
     {
