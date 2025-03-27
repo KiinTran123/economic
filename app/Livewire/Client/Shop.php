@@ -8,6 +8,6 @@ class Shop extends Component
 {
     public function render()
     {
-        return view('livewire.client.shop')->layout('layouts.client.app');
+        return view('livewire.client.shop')->layout('components.layouts.app') ->title('Cửa hàng');
     }
 }

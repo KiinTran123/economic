@@ -8,6 +8,6 @@ class Register extends Component
 {
     public function render()
     {
-        return view('livewire.client.register')->layout('layouts.client.app');
+        return view('livewire.client.register')->layout('components.layouts.app') ->title('Đăng ký');
     }
 }

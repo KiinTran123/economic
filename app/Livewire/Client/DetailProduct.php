@@ -8,6 +8,6 @@ class DetailProduct extends Component
 {
     public function render()
     {
-        return view('livewire.client.detail-product')->layout('layouts.client.app');
+        return view('livewire.client.detail-product')->layout('components.layouts.app') ->title('Chi tiết sản phẩm');
     }
 }

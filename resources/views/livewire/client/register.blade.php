@@ -1,7 +1,4 @@
-@extends('layouts.client.app') 
-@section('title', 'Đăng ký')
 
-@section('content')
 <div id="page-content" class="page-content">
     <div class="banner">
         <div
@@ -99,4 +96,3 @@
         </div>
     </div>
 </div>
-@endsection

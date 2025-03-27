@@ -1,9 +1,4 @@
-@extends('layouts.client.app')
 
-@section('title', 'Trang chủ')
-
-@section('content')
-<div>
   <div id="page-content" class="page-content">
     <div class="banner">
       <div class="jumbotron jumbotron-video text-center bg-dark mb-0 rounded-0">
@@ -198,5 +193,3 @@
       </div>
     </section>
   </div>
-</div>
-@endsection
