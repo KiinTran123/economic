@@ -11,15 +11,15 @@
 
                 <div class="card card-login mb-5">
                     <div class="card-body">
-                        <form class="form-horizontal" action="index.html">
+                        <form class="form-horizontal" wire:submit.prevent="login">
                             <div class="form-group row mt-3">
                                 <div class="col-md-12">
-                                    <input class="form-control" type="text" required="" placeholder="Tên đăng nhập">
+                                    <input class="form-control" type="text" placeholder="Tên đăng nhập">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <input class="form-control" type="password" required="" placeholder="Mật khẩu">
+                                    <input class="form-control" type="password" placeholder="Mật khẩu">
                                 </div>
                             </div>
                             <div class="form-group row">

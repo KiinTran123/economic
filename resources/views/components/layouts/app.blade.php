@@ -27,7 +27,23 @@
     {{ $slot }}
     @livewire('client.footer')
 
+    @if (session('success'))
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Thành công!',
+                text: "{{ session('success') }}",
+                timer: 3000,
+                showConfirmButton: false
+            });
+        });
+    </script>
+@endif
 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="{{ asset('assets/js/jquery.js') }}  "></script>
     <script type="text/javascript" src="{{ asset('assets/js/jquery-migrate.js') }}  "></script>
     <script type="text/javascript" src="{{ asset('assets/packages/bootstrap/libraries/popper.js') }} "></script>

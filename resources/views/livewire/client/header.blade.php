@@ -26,6 +26,7 @@
               <a href="{{ route('about') }}" class="nav-link">Freshcery</a>
             </li>
 
+
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="avatar-header"><img src="assets/img/logo/avatar.jpg" alt="Avatar"></div> John Doe
@@ -37,6 +38,9 @@
                 <a class="dropdown-item" href="{{ route('login') }}">Đăng nhập</a>
               </div>
             </li>
+
+
+
             <li class="nav-item dropdown">
               <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary">5</span>
