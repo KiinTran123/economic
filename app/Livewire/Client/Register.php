@@ -8,14 +8,14 @@ use Livewire\Component;
 
 class Register extends Component
 {
-    public $name, $email, $phone, $username, $password, $password_confirmation, $terms;
+    public $name, $email, $phone, $Fullname, $password, $password_confirmation, $terms;
 
     // Validation rules
     protected $rules = [
         'name' => 'required|string|max:255',
         'email' => 'required|email|unique:users,email',
         'phone' => 'required|numeric|digits:10|unique:users,phone',
-        'username' => 'required|string|max:255|unique:users,username',
+        'Fullname' => 'required|string|max:255|unique:users,username',
         'password' => 'required|min:6|confirmed',
         'terms' => 'accepted',
     ];
@@ -29,7 +29,7 @@ class Register extends Component
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
-            'username' => $this->username,
+            'Fullname' => $this->Fullname,
             'password' => Hash::make($this->password),
             'role' => '0',
             'is_active' => true,
