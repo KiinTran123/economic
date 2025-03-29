@@ -15,7 +15,7 @@ class Register extends Component
         'name' => 'required|string|max:255',
         'email' => 'required|email|unique:users,email',
         'phone' => 'required|numeric|digits:10|unique:users,phone',
-        'Fullname' => 'required|string|max:255|unique:users,username',
+        'Fullname' => 'required|string|max:255|unique:users,Fullname',
         'password' => 'required|min:6|confirmed',
         'terms' => 'accepted',
     ];
@@ -35,14 +35,11 @@ class Register extends Component
             'is_active' => true,
         ]);
 
-
-
-        // Reset form
         $this->reset();
 
         session()->flash('success', 'Đăng ký thành công! Vui lòng đăng nhập.');
 
-        return redirect()->route('login')->with('success', 'đăng ký htanfh tônc');
+        return redirect()->route('login')->with('success', 'đăng ký thành công');
     }
     public function render()
     {

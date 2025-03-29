@@ -3,17 +3,38 @@
 namespace App\Livewire\Client;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class Login extends Component
 {
 
+    public $email;
+    public $password;
+    public $remember = false;
  // Trong Livewire Component
 // Trong Livewire Component
 public function login()
 {
-    session()->flash('success', 'Đăng nhập thành công!');
-    $this->emit('show-alert');
+    $this->validate([
+        'email' => 'required|email',
+        'password' => 'required|min:6',
+    ]);
+
+    // Đăng nhập user với guard 'web'
+    if (Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
+        session(['auth_guard' => 'web']);
+        return redirect()->route('home');
+    }
+
+    throw ValidationException::withMessages([
+        'email' => 'Email hoặc mật khẩu không đúng.',
+    ]);
 }
+
+
+
+
     public function render()
     {
         return view('livewire.client.login')->layout('components.layouts.app') ->title('Đăng nhập');

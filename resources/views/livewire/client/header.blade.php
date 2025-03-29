@@ -26,18 +26,30 @@
               <a href="{{ route('about') }}" class="nav-link">Freshcery</a>
             </li>
 
-
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="avatar-header"><img src="assets/img/logo/avatar.jpg" alt="Avatar"></div> John Doe
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('transaction') }}">Lịch sử giao dịch</a>
-                <a class="dropdown-item" href="{{ route('setting') }}">Cài đặt</a>
-                <a class="dropdown-item" href="{{ route('register') }}">Đăng ký</a>
-                <a class="dropdown-item" href="{{ route('login') }}">Đăng nhập</a>
-              </div>
+                @auth
+                    <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="avatar-header">
+                            <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="Avatar">
+                        </div>
+                        {{ Auth::user()->name }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('transaction') }}">Lịch sử giao dịch</a>
+                        <a class="dropdown-item" href="{{ route('setting') }}">Cài đặt</a>
+                        @livewire('client.logout')
+                    </div>
+                @else
+                <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="guestDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tài khoản
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="guestDropdown">
+                        <a class="dropdown-item" href="{{ route('login') }}">Đăng nhập</a>
+                        <a class="dropdown-item" href="{{ route('register') }}">Đăng ký</a>
+                    </div>
+                @endauth
             </li>
+
 
 
 

@@ -12,41 +12,64 @@
                             <div class="form-group row mt-3">
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" placeholder="Họ và Tên" wire:model="name" />
-                                    @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+                                    @error('name')
+                                        <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
+                                            <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group row mt-3">
                                 <div class="col-md-12">
                                     <input class="form-control" type="email" placeholder="Email" wire:model="email" />
-                                    @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+                                    @error('email')
+                                        <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
+                                            <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group row mt-3">
                                 <div class="col-md-12">
                                     <input class="form-control" type="tel" placeholder="Số điện thoại"
                                         wire:model="phone" />
-                                    @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
+                                        @error('phone')
+                                        <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
+                                            <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group row mt-3">
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" placeholder="Tên người dùng"
-                                        wire:model="username" />
-                                    @error('username') <span class="text-danger">{{ $message }}</span> @enderror
+                                        wire:model="Fullname" />
+                                    @error('Fullname')
+                                        <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
+                                            <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <input class="form-control" type="password" placeholder="Mật khẩu"
                                         wire:model="password" />
-                                    @error('password') <span class="text-danger">{{ $message }}</span> @enderror
+                                        @error('password')
+                                        <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
+                                            <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <input class="form-control" type="password" placeholder="Xác nhận mật khẩu"
                                         wire:model="password_confirmation" />
-                                    @error('password_confirmation') <span class="text-danger">{{ $message }}</span>
+                                        @error('password_confirmation')
+                                        <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
+                                            <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                             </div>
