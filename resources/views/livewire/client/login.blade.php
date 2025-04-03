@@ -15,13 +15,17 @@
                             <div class="form-group row mt-3">
                                 <div class="col-md-12">
                                     <input class="form-control" type="email" placeholder="Email" wire:model="email">
-                                    @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+                                    @error('email') <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
+                                            <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
+                                        </div> @enderror
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <input class="form-control" type="password" placeholder="Mật khẩu" wire:model="password">
-                                    @error('password') <span class="text-danger">{{ $message }}</span> @enderror
+                                    @error('password') <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
+                                            <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
+                                        </div> @enderror
                                 </div>
                             </div>
                             <div class="form-group row">

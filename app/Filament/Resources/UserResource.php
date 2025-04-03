@@ -146,7 +146,31 @@ class UserResource extends Resource
 
             ])
             ->filters([
-                //
+            
+                Tables\Filters\SelectFilter::make('role')
+                    ->label('Vai trò')
+                    ->options([
+                        1 => 'Quản trị viên',
+                        0 => 'Người dùng',
+                    ]),
+
+
+                Tables\Filters\TernaryFilter::make('is_active')
+                    ->label('Trạng thái')
+                    ->trueLabel('Hoạt động')
+                    ->falseLabel('Không hoạt động'),
+
+
+                Tables\Filters\Filter::make('created_at')
+                    ->form([
+                        Forms\Components\DatePicker::make('created_from')->label('Từ ngày'),
+                        Forms\Components\DatePicker::make('created_to')->label('Đến ngày'),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when($data['created_from'], fn ($query, $date) => $query->whereDate('created_at', '>=', $date))
+                            ->when($data['created_to'], fn ($query, $date) => $query->whereDate('created_at', '<=', $date));
+                    }),
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
