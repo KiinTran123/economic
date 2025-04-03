@@ -32,31 +32,26 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')
-                    ->required()
-                    ->label('Tên')
-                    ->maxLength(255)
-                    ->placeholder('Nhập tên...')
-                    ->live()
-                    ->afterStateUpdated(fn ($state, callable $set) => $set('name', ucfirst($state)))
-                    ->afterStateUpdated(fn ($state, callable $set) => $set('name', ucwords(strtolower($state))))
-                    ->rule('min:3'),
 
 
                 FileUpload::make('avatar')
                     ->label('Ảnh đại diện')
                     ->image()
-                    ->directory('avatars')
                     ->disk('public')
                     ->preserveFilenames()
                     ->columnSpanFull(),
 
-                TextInput::make('email')
+                TextInput::make('name')
                     ->required()
-                    ->label('Email')
-                    ->email()
+                    ->label('Họ và tên')
                     ->maxLength(255)
-                    ->afterStateUpdated(fn ($state, callable $set) => $set('email', strtolower(trim($state)))),
+                    ->placeholder('Nhập tên...')
+                    ->live()
+                    ->afterStateUpdated(fn($state, callable $set) => $set('name', ucfirst($state)))
+                    ->rule('regex:/^[\pL\s\-]+$/u')
+                    ->afterStateUpdated(fn($state, callable $set) => $set('name', ucwords(strtolower($state)))),
+
+
 
 
                 TextInput::make('phone')
@@ -65,15 +60,16 @@ class UserResource extends Resource
                     ->tel()
                     ->maxLength(15)
                     ->rule('regex:/^(\+84|0)[1-9][0-9]{8,9}$/')
-                    ->afterStateUpdated(fn ($state, callable $set) => $set('phone', trim($state))),
+                    ->afterStateUpdated(fn($state, callable $set) => $set('phone', trim($state))),
 
-                TextInput::make('Fullname')
+
+
+                TextInput::make('email')
                     ->required()
-                    ->label('Họ và tên')
+                    ->label('Email')
+                    ->email()
                     ->maxLength(255)
-                    ->rule('regex:/^[\pL\s\-]+$/u')
-                    ->afterStateUpdated(fn ($state, callable $set) => $set('Fullname', ucwords(strtolower($state)))),
-
+                    ->afterStateUpdated(fn($state, callable $set) => $set('email', strtolower(trim($state)))),
 
 
                 TextInput::make('password')
@@ -81,7 +77,7 @@ class UserResource extends Resource
                     ->required()
                     ->label('Mật khẩu')
                     ->maxLength(30)
-                    ->rule('min:8')
+                    ->rule('min:3')
                     ->autocomplete('new-password'),
 
 
@@ -100,7 +96,7 @@ class UserResource extends Resource
                     ->required()
                     ->default(0)
                     ->native(false),
-                    Toggle::make('is_active')
+                Toggle::make('is_active')
                     ->label('Trạng thái')
                     ->columnSpanFull()
             ]);
@@ -119,7 +115,7 @@ class UserResource extends Resource
                     ->label('Ảnh đại diện')
                     ->circular()
                     ->size(50)
-                    ->getStateUsing(fn ($record) => $record && $record->avatar
+                    ->getStateUsing(fn($record) => $record && $record->avatar
                         ? asset('storage/' . $record->avatar)
                         : asset('images/default-avatar.png')),
 
@@ -130,12 +126,7 @@ class UserResource extends Resource
                     ->searchable(),
 
                 TextColumn::make('phone')
-                    ->label('phone')
-                    ->sortable()
-                    ->searchable(),
-
-                TextColumn::make('Fullname')
-                    ->label('Fullname')
+                    ->label('SĐT')
                     ->sortable()
                     ->searchable(),
 
@@ -146,7 +137,7 @@ class UserResource extends Resource
 
             ])
             ->filters([
-            
+
                 Tables\Filters\SelectFilter::make('role')
                     ->label('Vai trò')
                     ->options([
@@ -168,8 +159,8 @@ class UserResource extends Resource
                     ])
                     ->query(function (Builder $query, array $data): Builder {
                         return $query
-                            ->when($data['created_from'], fn ($query, $date) => $query->whereDate('created_at', '>=', $date))
-                            ->when($data['created_to'], fn ($query, $date) => $query->whereDate('created_at', '<=', $date));
+                            ->when($data['created_from'], fn($query, $date) => $query->whereDate('created_at', '>=', $date))
+                            ->when($data['created_to'], fn($query, $date) => $query->whereDate('created_at', '<=', $date));
                     }),
             ])
             ->actions([

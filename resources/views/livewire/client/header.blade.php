@@ -30,7 +30,7 @@
                 @auth
                     <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="avatar-header">
-                            <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="Avatar">
+                        <img src="{{ asset('storage/' . (Auth::user()->avatar ?? 'default.png')) }}" alt="Avatar">
                         </div>
                         {{ Auth::user()->name }}
                     </a>

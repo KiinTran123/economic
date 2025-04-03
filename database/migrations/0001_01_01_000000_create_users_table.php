@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('password');
             $table->tinyInteger('role')->default(0);
             $table->boolean('is_active');
+            $table->string('phone')->nullable();
+            $table->string('avatar')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });

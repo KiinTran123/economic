@@ -3,19 +3,18 @@
 namespace App\Livewire\Client;
 
 use App\Models\User;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class Register extends Component
 {
-    public $name, $email, $phone, $Fullname, $password, $password_confirmation, $terms;
+    public $name, $email, $phone, $password, $password_confirmation, $terms;
 
     // Validation rules
     protected $rules = [
         'name' => 'required|string|max:255',
         'email' => 'required|email|unique:users,email',
         'phone' => 'required|numeric|digits:10|unique:users,phone',
-        'Fullname' => 'required|string|max:255|unique:users,Fullname',
         'password' => 'required|min:6|confirmed',
         'terms' => 'accepted',
     ];
@@ -29,7 +28,6 @@ class Register extends Component
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
-            'Fullname' => $this->Fullname,
             'password' => Hash::make($this->password),
             'role' => '0',
             'is_active' => true,

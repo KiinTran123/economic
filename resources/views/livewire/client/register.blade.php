@@ -13,19 +13,9 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" placeholder="Họ và Tên" wire:model="name" />
                                     @error('name')
-                                        <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
-                                            <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-group row mt-3">
-                                <div class="col-md-12">
-                                    <input class="form-control" type="email" placeholder="Email" wire:model="email" />
-                                    @error('email')
-                                        <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
-                                            <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
-                                        </div>
+                                    <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
+                                        <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
+                                    </div>
                                     @enderror
                                 </div>
                             </div>
@@ -33,32 +23,32 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="tel" placeholder="Số điện thoại"
                                         wire:model="phone" />
-                                        @error('phone')
-                                        <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
-                                            <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
-                                        </div>
+                                    @error('phone')
+                                    <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
+                                        <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
+                                    </div>
                                     @enderror
                                 </div>
                             </div>
                             <div class="form-group row mt-3">
                                 <div class="col-md-12">
-                                    <input class="form-control" type="text" placeholder="Tên người dùng"
-                                        wire:model="Fullname" />
-                                    @error('Fullname')
-                                        <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
-                                            <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
-                                        </div>
+                                    <input class="form-control" type="email" placeholder="Email" wire:model="email" />
+                                    @error('email')
+                                    <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
+                                        <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
+                                    </div>
                                     @enderror
                                 </div>
                             </div>
+
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <input class="form-control" type="password" placeholder="Mật khẩu"
                                         wire:model="password" />
-                                        @error('password')
-                                        <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
-                                            <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
-                                        </div>
+                                    @error('password')
+                                    <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
+                                        <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
+                                    </div>
                                     @enderror
                                 </div>
                             </div>
@@ -66,10 +56,10 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="password" placeholder="Xác nhận mật khẩu"
                                         wire:model="password_confirmation" />
-                                        @error('password_confirmation')
-                                        <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
-                                            <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
-                                        </div>
+                                    @error('password_confirmation')
+                                    <div class="alert alert-danger d-flex align-items-center mt-2 p-2" role="alert">
+                                        <i class="bi bi-exclamation-circle-fill me-2"></i> {{ $message }}
+                                    </div>
                                     @enderror
                                 </div>
                             </div>
