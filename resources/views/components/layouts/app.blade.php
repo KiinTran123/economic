@@ -27,6 +27,10 @@
     {{ $slot }}
     @livewire('client.footer')
 
+
+
+
+
     @if (session('success'))
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -40,6 +44,23 @@
         });
     </script>
 @endif
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: { items: 1 },
+                600: { items: 3 },
+                1000: { items: 4 }
+            }
+        });
+    });
+</script>
+@endpush
 
 
 

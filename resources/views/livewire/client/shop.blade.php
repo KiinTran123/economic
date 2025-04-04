@@ -55,15 +55,15 @@
                                             <span class="badge badge-default">Đến năm 2023</span>
                                             <span class="badge badge-primary">Giảm 20%</span>
                                         </div>
-                                        <img src="{{ asset('storage/' . ($product->images[0] ?? 'default.jpg')) }}" alt="{{ $product->name }}" class="card-img-top">
+                                        <img src="{{ asset('storage/' . ($product->images[0] ?? 'default.jpg')) }}" alt="{{ $product->name }}" class="card-img-top" onclick="window.location.href='{{ route('detail-product', $product->id) }}'" style="cursor: pointer;">
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">{{ $product->name }}</h4>
+                                        <h4 class="card-title"><a href="{{ route('detail-product', $product->id) }}">{{ $product->name }}</a></h4>
                                         <div class="card-price">
                                             <span class="discount">{{ number_format($product->price * 1.2, 0, ',', '.') }}đ</span>
                                             <span class="reguler">{{ number_format($product->price, 0, ',', '.') }}đ</span>
                                         </div>
-                                        <button wire:click="addToCart({{ $product->id }})" class="btn btn-block btn-primary">
+                                        <button wire:click="addToCart({{ $product->id }})" class="btn btn-block btn-primary mt-2">
                                             Thêm vào Giỏ Hàng
                                         </button>
                                     </div>
@@ -83,8 +83,6 @@
                     <h2 class="title">Rau Củ</h2>
                     <div class="product-carousel owl-carousel">
                         @foreach ($vegetables as $product)
-                    {{ $product->id }}
-
                             <div class="item">
                                 <div class="card card-product">
                                     <div class="card-ribbon">
@@ -97,15 +95,15 @@
                                             <span class="badge badge-default">Đến năm 20255</span>
                                             <span class="badge badge-primary">Giảm 20%</span>
                                         </div>
-                                        <img src="{{ asset('storage/' . ($product->images[0] ?? 'default.jpg')) }}" alt="{{ $product->name }}" class="card-img-top">
+                                        <img src="{{ asset('storage/' . ($product->images[0] ?? 'default.jpg')) }}" alt="{{ $product->name }}" class="card-img-top" onclick="window.location.href='{{ route('detail-product', $product->id) }}'" style="cursor: pointer;">
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">{{ $product->name }}</h4>
+                                        <h4 class="card-title"><a href="{{ route('detail-product', $product->id) }}">{{ $product->name }}</a></h4>
                                         <div class="card-price">
                                             <span class="discount">{{ number_format($product->price * 1.2, 0, ',', '.') }}đ</span>
                                             <span class="reguler">{{ number_format($product->price, 0, ',', '.') }}đ</span>
                                         </div>
-                                        <button wire:click="addToCart({{ $product->id }})" class="btn btn-block btn-primary">
+                                        <button wire:click="addToCart({{ $product->id }})" class="btn btn-block btn-primary mt-2">
                                             Thêm vào Giỏ Hàng
                                         </button>
                                     </div>
@@ -137,15 +135,15 @@
                                             <span class="badge badge-default">Đến năm 2023</span>
                                             <span class="badge badge-primary">Giảm 20%</span>
                                         </div>
-                                        <img src="{{ asset('storage/' . ($product->images[0] ?? 'default.jpg')) }}" alt="{{ $product->name }}" class="card-img-top">
+                                        <img src="{{ asset('storage/' . ($product->images[0] ?? 'default.jpg')) }}" alt="{{ $product->name }}" class="card-img-top" onclick="window.location.href='{{ route('detail-product', $product->id) }}'" style="cursor: pointer;">
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">{{ $product->name }}</h4>
+                                        <h4 class="card-title"><a href="{{ route('detail-product', $product->id) }}">{{ $product->name }}</a></h4>
                                         <div class="card-price">
                                             <span class="discount">{{ number_format($product->price * 1.2, 0, ',', '.') }}đ</span>
                                             <span class="reguler">{{ number_format($product->price, 0, ',', '.') }}đ</span>
                                         </div>
-                                        <button wire:click="addToCart({{ $product->id }})" class="btn btn-block btn-primary">
+                                        <button wire:click="addToCart({{ $product->id }})" class="btn btn-block btn-primary mt-2">
                                             Thêm vào Giỏ Hàng
                                         </button>
                                     </div>
@@ -165,7 +163,6 @@
                     <h2 class="title">Cá</h2>
                     <div class="product-carousel owl-carousel">
                         @foreach ($fishes as $product)
-
                             <div class="item">
                                 <div class="card card-product">
                                     <div class="card-ribbon">
@@ -178,15 +175,15 @@
                                             <span class="badge badge-default">Đến năm 2023</span>
                                             <span class="badge badge-primary">Giảm 20%</span>
                                         </div>
-                                        <img src="{{ asset('storage/' . ($product->images[0] ?? 'default.jpg')) }}" alt="{{ $product->name }}" class="card-img-top">
+                                        <img src="{{ asset('storage/' . ($product->images[0] ?? 'default.jpg')) }}" alt="{{ $product->name }}" class="card-img-top" onclick="window.location.href='{{ route('detail-product', $product->id) }}'" style="cursor: pointer;">
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">{{ $product->name }}</h4>
+                                        <h4 class="card-title"><a href="{{ route('detail-product', $product->id) }}">{{ $product->name }}</a></h4>
                                         <div class="card-price">
                                             <span class="discount">{{ number_format($product->price * 1.2, 0, ',', '.') }}đ</span>
                                             <span class="reguler">{{ number_format($product->price, 0, ',', '.') }}đ</span>
                                         </div>
-                                        <button wire:click="addToCart({{ $product->id }})" class="btn btn-block btn-primary">
+                                        <button wire:click="addToCart({{ $product->id }})" class="btn btn-block btn-primary mt-2">
                                             Thêm vào Giỏ Hàng
                                         </button>
                                     </div>
@@ -218,15 +215,15 @@
                                             <span class="badge badge-default">Đến năm 2023</span>
                                             <span class="badge badge-primary">Giảm 20%</span>
                                         </div>
-                                        <img src="{{ asset('storage/' . ($product->images[0] ?? 'default.jpg')) }}" alt="{{ $product->name }}" class="card-img-top">
+                                        <img src="{{ asset('storage/' . ($product->images[0] ?? 'default.jpg')) }}" alt="{{ $product->name }}" class="card-img-top" onclick="window.location.href='{{ route('detail-product', $product->id) }}'" style="cursor: pointer;">
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">{{ $product->name }}</h4>
+                                        <h4 class="card-title"><a href="{{ route('detail-product', $product->id) }}">{{ $product->name }}</a></h4>
                                         <div class="card-price">
                                             <span class="discount">{{ number_format($product->price * 1.2, 0, ',', '.') }}đ</span>
                                             <span class="reguler">{{ number_format($product->price, 0, ',', '.') }}đ</span>
                                         </div>
-                                        <button wire:click="addToCart({{ $product->id }})" class="btn btn-block btn-primary">
+                                        <button wire:click="addToCart({{ $product->id }})" class="btn btn-block btn-primary mt-2">
                                             Thêm vào Giỏ Hàng
                                         </button>
                                     </div>
@@ -240,7 +237,7 @@
     </section>
 </div>
 
-<!-- @push('scripts')
+@push('scripts')
 <script>
     document.addEventListener('livewire:load', function () {
         $('.owl-carousel').owlCarousel({
@@ -265,4 +262,4 @@
         });
     });
 </script>
-@endpush -->
+@endpush

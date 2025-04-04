@@ -5,7 +5,7 @@
       <div class="container">
         <!-- Thương hiệu của Navbar -->
         <a href="{{ route('home') }}" class="navbar-brand">
-          <img src="assets/img/logo/logo.png" alt="Logo">
+          <img src="../assets/img/logo/logo.png" alt="Logo">
         </a>
 
         <!-- Nút điều khiển Navbar -->

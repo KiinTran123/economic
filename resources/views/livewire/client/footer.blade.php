@@ -57,11 +57,11 @@
                     <h5>Tải ứng dụng của chúng tôi</h5>
                     <ul class="mb-0">
                         <li class="download-app">
-                            <a href="#"><img src="assets/img/playstore.png" alt="Tải xuống từ Playstore"></a>
+                            <a href="#"><img src="../assets/img/playstore.png" alt="Tải xuống từ Playstore"></a>
                         </li>
                         <li style="height: 200px">
                             <div class="mockup">
-                                <img src="assets/img/mockup.png" alt="Ảnh mô phỏng ứng dụng">
+                                <img src="../assets/img/mockup.png" alt="Ảnh mô phỏng ứng dụng">
                             </div>
                         </li>
                     </ul>

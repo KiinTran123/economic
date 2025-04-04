@@ -23,7 +23,7 @@ Route::get('/gioi-thieu', About::class)->name('about');
 
 Route::get('/lien-he', Contact::class)->name('contact');
 
-Route::get('/chi-tiet-san-pham', DetailProduct::class)->name('detail-product');
+Route::get('/chi-tiet-san-pham/{id}', DetailProduct::class)->name('detail-product');
 
 Route::get('/cau-hoi-thuong-gap', Faq::class)->name('faq');
 

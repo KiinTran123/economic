@@ -34,10 +34,10 @@ class Shop extends Component
             ->get();
 
         $this->popularProducts = $products->take(10);
-        $this->vegetables = $products->where('category_id', 13);
-        $this->meats = $products->where('category_id', 15);
-        $this->fishes = $products->where('category_id', 14);
-        $this->fruits = $products->where('category_id', 16);
+        $this->vegetables = $products->where('category_id', 1);
+        $this->meats = $products->where('category_id', 2);
+        $this->fishes = $products->where('category_id', 3);
+        $this->fruits = $products->where('category_id', 4);
     }
 
     public function filterByCategory($categoryId)
