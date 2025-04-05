@@ -27,35 +27,32 @@
             </li>
 
             <li class="nav-item dropdown">
-                @auth
-                    <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="avatar-header">
-                        <img src="{{ asset('storage/' . (Auth::user()->avatar ?? 'default.png')) }}" alt="Avatar">
-                        </div>
-                        {{ Auth::user()->name }}
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('transaction') }}">Lịch sử giao dịch</a>
-                        <a class="dropdown-item" href="{{ route('setting') }}">Cài đặt</a>
-                        @livewire('client.logout')
-                    </div>
-                @else
-                <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="guestDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tài khoản
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="guestDropdown">
-                        <a class="dropdown-item" href="{{ route('login') }}">Đăng nhập</a>
-                        <a class="dropdown-item" href="{{ route('register') }}">Đăng ký</a>
-                    </div>
-                @endauth
+              @auth
+              <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="avatar-header">
+                  <img src="{{ asset('storage/' . (Auth::user()->avatar ?? 'default.png')) }}" alt="Avatar">
+                </div>
+                {{ Auth::user()->name }}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('transaction') }}">Lịch sử giao dịch</a>
+                <a class="dropdown-item" href="{{ route('setting') }}">Cài đặt</a>
+                @livewire('client.logout')
+              </div>
+              @else
+              <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="guestDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tài khoản
+              </a>
+              <div class="dropdown-menu" aria-labelledby="guestDropdown">
+                <a class="dropdown-item" href="{{ route('login') }}">Đăng nhập</a>
+                <a class="dropdown-item" href="{{ route('register') }}">Đăng ký</a>
+              </div>
+              @endauth
             </li>
-
-
-
 
             <li class="nav-item dropdown">
               <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary">5</span>
+                <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary">{{ $countProducts }}</span>
               </a>
               <div class="dropdown-menu shopping-cart">
                 <ul>
@@ -64,52 +61,30 @@
                   </li>
                   <li>
                     <div class="shopping-cart-list">
+                      @foreach($productsCart as $cartItem)
                       <div class="media">
-                        <img class="d-flex mr-3" src="assets/img/logo/avatar.jpg" width="60" alt="Ảnh sản phẩm">
+                        @php
+                        $imageUrl = !empty($cartItem->product->images) && is_array($cartItem->product->images)
+                        ? $cartItem->product->images[0]
+                        : 'default_image.jpg';
+                        @endphp
+                        <img class="d-flex mr-3" src="{{ asset('storage/' . $imageUrl) }}" width="60" alt="Ảnh sản phẩm">
+
                         <div class="media-body">
-                          <h5><a href="javascript:void(0)">Cà rốt</a></h5>
+                          <h5><a href="javascript:void(0)">{{ $cartItem->product->name }}</a></h5>
+
                           <p class="price">
-                            <span class="discount text-muted">Rp. 700.000</span>
-                            <span>Rp. 100.000</span>
+                            <span class="discount text-muted">{{ number_format($cartItem->product->original_price, 0, ',', '.') }} VND</span>
+                            <span>{{ number_format($cartItem->product->price, 0, ',', '.') }} VND</span>
                           </p>
-                          <p class="text-muted">Số lượng: 1</p>
+
+                          <p class="text-muted">Số lượng: {{ $cartItem->quantity }}</p>
                         </div>
                       </div>
-                      <div class="media">
-                        <img class="d-flex mr-3" src="assets/img/logo/avatar.jpg" width="60" alt="Ảnh sản phẩm">
-                        <div class="media-body">
-                          <h5><a href="javascript:void(0)">Cà rốt</a></h5>
-                          <p class="price">
-                            <span class="discount text-muted">Rp. 700.000</span>
-                            <span>Rp. 100.000</span>
-                          </p>
-                          <p class="text-muted">Số lượng: 1</p>
-                        </div>
-                      </div>
-                      <div class="media">
-                        <img class="d-flex mr-3" src="assets/img/logo/avatar.jpg" width="60" alt="Ảnh sản phẩm">
-                        <div class="media-body">
-                          <h5><a href="javascript:void(0)">Cà rốt</a></h5>
-                          <p class="price">
-                            <span class="discount text-muted">Rp. 700.000</span>
-                            <span>Rp. 100.000</span>
-                          </p>
-                          <p class="text-muted">Số lượng: 1</p>
-                        </div>
-                      </div>
-                      <div class="media">
-                        <img class="d-flex mr-3" src="assets/img/logo/avatar.jpg" width="60" alt="Ảnh sản phẩm">
-                        <div class="media-body">
-                          <h5><a href="javascript:void(0)">Cà rốt</a></h5>
-                          <p class="price">
-                            <span class="discount text-muted">Rp. 700.000</span>
-                            <span>Rp. 100.000</span>
-                          </p>
-                          <p class="text-muted">Số lượng: 1</p>
-                        </div>
-                      </div>
+                      @endforeach
                     </div>
                   </li>
+
                   <li>
                     <div class="drop-title d-flex justify-content-between">
                       <span>Tổng cộng:</span>

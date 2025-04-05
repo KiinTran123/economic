@@ -23,6 +23,8 @@
 </head>
 
 <body>
+
+    @livewire('notification')
     @livewire('client.header')
     {{ $slot }}
     @livewire('client.footer')

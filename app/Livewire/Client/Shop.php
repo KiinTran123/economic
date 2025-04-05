@@ -4,10 +4,13 @@ namespace App\Livewire\Client;
 
 use Livewire\Component;
 use App\Models\Category;
+use App\Models\Cart;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
 class Shop extends Component
 {
+    public $products;
     public $categories;
     public $popularProducts;
     public $vegetables;
@@ -15,6 +18,45 @@ class Shop extends Component
     public $fishes;
     public $fruits;
     public $selectedCategory = null;
+    public $quantity = 1;
+
+
+    public function addToCart($productId)
+    {
+        if (Auth::check()) {
+            $userId = Auth::id();
+
+            $product = Product::find($productId);
+            if (!$product) {
+                session()->flash('error', 'Sản phẩm không tồn tại.');
+                return;
+            }
+
+            $existingCartItem = Cart::where('user_id', $userId)
+                ->where('product_id', $productId)
+                ->first();
+
+            if ($existingCartItem) {
+
+                $existingCartItem->increment('quantity', $this->quantity);
+            } else {
+
+                Cart::create([
+                    'user_id' => $userId,
+                    'product_id' => $productId,
+                    'quantity' => $this->quantity
+                ]);
+            }
+
+            $this->dispatch('cartUpdated');
+            $this->dispatch('showNotification', 'Sản phẩm đã được thêm.', 'success');
+
+        } else {
+            $this->dispatch('showNotification', 'Vui lòng đăng nhập.', 'error');
+
+        }
+    }
+
 
     public function mount($category = null)
     {
