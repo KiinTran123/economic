@@ -2,7 +2,7 @@
 
 use App\Livewire\Client\Index;
 use App\Livewire\Client\About;
-use App\Livewire\Client\Cart;
+use App\Livewire\Client\Carts;
 use App\Livewire\Client\Checkout;
 use App\Livewire\Client\Contact;
 use App\Livewire\Client\DetailProduct;
@@ -40,14 +40,12 @@ Route::get('/dieu-khoan', Terms::class)->name('terms');
 Route::get('/forgot-password', function () {
 
     return view('auth.forgot-password');
-
 })->middleware('guest:web')->name('password.request');
 
-Route::get('/gio-hang', Cart::class)->name('cart');
+Route::get('/gio-hang', Carts::class)->name('cart');
 
 Route::get('/thanh-toan', Checkout::class)->name('checkout');
 
 Route::get('/cai-dat', Setting::class)->name('setting');
 
 Route::get('/giao-dich', Transaction::class)->name('transaction');
-

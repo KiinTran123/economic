@@ -74,7 +74,7 @@
                           <h5><a href="javascript:void(0)">{{ $cartItem->product->name }}</a></h5>
 
                           <p class="price">
-                            <span class="discount text-muted">{{ number_format($cartItem->product->original_price, 0, ',', '.') }} VND</span>
+                            <!-- <span class="discount text-muted">{{ number_format($cartItem->product->original_price, 0, ',', '.') }} VND</span> -->
                             <span>{{ number_format($cartItem->product->price, 0, ',', '.') }} VND</span>
                           </p>
 
@@ -88,7 +88,7 @@
                   <li>
                     <div class="drop-title d-flex justify-content-between">
                       <span>Tổng cộng:</span>
-                      <span class="text-primary"><strong>Rp. 2000.000</strong></span>
+                      <span class="text-primary"><strong>{{ number_format($totalAmount, 0, ',', '.') }} VND</strong></span>
                     </div>
                   </li>
                   <li class="d-flex justify-content-between pl-3 pr-3 pt-3">

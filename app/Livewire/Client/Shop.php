@@ -49,7 +49,7 @@ class Shop extends Component
             }
 
             $this->dispatch('cartUpdated');
-            $this->dispatch('showNotification', 'Sản phẩm đã được thêm.', 'success');
+            $this->dispatch('showNotification',  'Sản phẩm đã được thêm.', 'success');
 
         } else {
             $this->dispatch('showNotification', 'Vui lòng đăng nhập.', 'error');
