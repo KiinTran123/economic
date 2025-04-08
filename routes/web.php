@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\Auth\ForgotPassword;
+use App\Livewire\Auth\ResetPassword;
 use App\Livewire\Client\Index;
 use App\Livewire\Client\About;
 use App\Livewire\Client\Carts;
@@ -49,3 +51,10 @@ Route::get('/thanh-toan', Checkout::class)->name('checkout');
 Route::get('/cai-dat', Setting::class)->name('setting');
 
 Route::get('/giao-dich', Transaction::class)->name('transaction');
+
+Route::get('/forgot-password', ForgotPassword::class)->name('password.request');
+
+
+Route::get('/reset-password/{token}', ResetPassword::class)
+    ->middleware('guest')
+    ->name('password.reset');
