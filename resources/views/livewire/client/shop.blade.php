@@ -70,7 +70,7 @@
                                         <img src="{{ asset('storage/' . ($product->images[0] ?? 'default.jpg')) }}" alt="{{ $product->name }}" class="card-img-top">
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">{{ $product->name }}</h4>
+                                        <h4 class="card-title">  <a href="{{ route('detail-product',$product->id ) }}"> {{ $product->name }}</a></h4>
                                         <div class="card-price">
                                             <span class="discount">{{ number_format($product->price * 1.2, 0, ',', '.') }}đ</span>
                                             <span class="reguler">{{ number_format($product->price, 0, ',', '.') }}đ</span>
@@ -95,8 +95,6 @@
                     <h2 class="title">Rau Củ</h2>
                     <div class="product-carousel owl-carousel">
                         @foreach ($vegetables as $product)
-                    {{ $product->id }}
-
                             <div class="item">
                                 <div class="card card-product">
                                     <div class="card-ribbon">
@@ -112,7 +110,7 @@
                                         <img src="{{ asset('storage/' . ($product->images[0] ?? 'default.jpg')) }}" alt="{{ $product->name }}" class="card-img-top">
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">{{ $product->name }}</h4>
+                                        <h4 class="card-title"><a href="{{ route('detail-product',$product->id ) }}">{{ $product->name }}</a></h4>
                                         <div class="card-price">
                                             <span class="discount">{{ number_format($product->price * 1.2, 0, ',', '.') }}đ</span>
                                             <span class="reguler">{{ number_format($product->price, 0, ',', '.') }}đ</span>
@@ -152,7 +150,7 @@
                                         <img src="{{ asset('storage/' . ($product->images[0] ?? 'default.jpg')) }}" alt="{{ $product->name }}" class="card-img-top">
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">{{ $product->name }}</h4>
+                                        <h4 class="card-title"><a href="{{ route('detail-product',$product->id ) }}">{{ $product->name }}</a></h4>
                                         <div class="card-price">
                                             <span class="discount">{{ number_format($product->price * 1.2, 0, ',', '.') }}đ</span>
                                             <span class="reguler">{{ number_format($product->price, 0, ',', '.') }}đ</span>
@@ -193,7 +191,7 @@
                                         <img src="{{ asset('storage/' . ($product->images[0] ?? 'default.jpg')) }}" alt="{{ $product->name }}" class="card-img-top">
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">{{ $product->name }}</h4>
+                                        <h4 class="card-title"><a href="{{ route('detail-product',$product->id ) }}">{{ $product->name }}</a></h4>
                                         <div class="card-price">
                                             <span class="discount">{{ number_format($product->price * 1.2, 0, ',', '.') }}đ</span>
                                             <span class="reguler">{{ number_format($product->price, 0, ',', '.') }}đ</span>
@@ -233,7 +231,7 @@
                                         <img src="{{ asset('storage/' . ($product->images[0] ?? 'default.jpg')) }}" alt="{{ $product->name }}" class="card-img-top">
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">{{ $product->name }}</h4>
+                                        <h4 class="card-title"><a href="{{ route('detail-product',$product->id ) }}">{{ $product->name }}</a></h4>
                                         <div class="card-price">
                                             <span class="discount">{{ number_format($product->price * 1.2, 0, ',', '.') }}đ</span>
                                             <span class="reguler">{{ number_format($product->price, 0, ',', '.') }}đ</span>

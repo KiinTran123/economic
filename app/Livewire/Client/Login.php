@@ -18,17 +18,17 @@ public function login()
 {
     $this->validate([
         'email' => 'required|email',
-        'password' => 'required|min:6',
+        'password' => 'required',
     ]);
 
-    // Đăng nhập user với guard 'web'
     if (Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
         session(['auth_guard' => 'web']);
         return redirect()->route('home');
     }
 
     throw ValidationException::withMessages([
-        'email' => 'Email hoặc mật khẩu không đúng.',
+        'email' => 'Email không đúng.',
+        'password' => 'Mật khẩu không đúng.',
     ]);
 }
 
