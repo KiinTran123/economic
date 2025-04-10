@@ -36,7 +36,7 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{ route('transaction') }}">Lịch sử giao dịch</a>
-                <a class="dropdown-item" href="{{ route('setting') }}">Cài đặt</a>
+                <a class="dropdown-item" href="{{ route('setting') }}">Thông tin người dùng</a>
                 @livewire('client.logout')
               </div>
               @else
