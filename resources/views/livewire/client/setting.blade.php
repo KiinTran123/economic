@@ -72,7 +72,7 @@
                                     @foreach($districts as $district)
                                         <option value="{{ $district['code'] }}">{{ $district['name'] }}</option>
                                     @endforeach
-                                </select>
+                                </select>g
                                 @error('address') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 

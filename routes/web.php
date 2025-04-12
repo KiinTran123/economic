@@ -60,30 +60,30 @@ Route::get('/reset-password/{token}', ResetPassword::class)
     ->name('password.reset');
 
 
-Route::get('/api/suggestions/{type}', function (Request $request, $type) {
-        $query = $request->query('query');
-        $apiKey = env('GOONG_API_KEY');
+// Route::get('/api/suggestions/{type}', function (Request $request, $type) {
+//         $query = $request->query('query');
+//         $apiKey = env('GOONG_API_KEY');
 
-        if (!$apiKey) {
-            return response()->json(['error' => 'API key not set'], 500);
-        }
+//         if (!$apiKey) {
+//             return response()->json(['error' => 'API key not set'], 500);
+//         }
 
-        $url = "https://rsapi.goong.io/Place/AutoComplete?input=" . urlencode($query) . "&api_key=" . $apiKey;
+//         $url = "https://rsapi.goong.io/Place/AutoComplete?input=" . urlencode($query) . "&api_key=" . $apiKey;
 
-        try {
-            $response = file_get_contents($url);
-            $data = json_decode($response, true);
+//         try {
+//             $response = file_get_contents($url);
+//             $data = json_decode($response, true);
 
-            if ($data && $data['status'] == 'OK') {
-                $suggestions = [];
-                foreach ($data['predictions'] as $prediction) {
-                    $suggestions[] = $prediction['description'];
-                }
-                return response()->json($suggestions);
-            } else {
-                return response()->json([], 200); // Trả về mảng rỗng nếu không có gợi ý
-            }
-        } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500); // Trả về lỗi nếu có lỗi xảy ra trong quá trình gọi API
-        }
-    });
+//             if ($data && $data['status'] == 'OK') {
+//                 $suggestions = [];
+//                 foreach ($data['predictions'] as $prediction) {
+//                     $suggestions[] = $prediction['description'];
+//                 }
+//                 return response()->json($suggestions);
+//             } else {
+//                 return response()->json([], 200); // Trả về mảng rỗng nếu không có gợi ý
+//             }
+//         } catch (\Exception $e) {
+//             return response()->json(['error' => $e->getMessage()], 500); // Trả về lỗi nếu có lỗi xảy ra trong quá trình gọi API
+//         }
+//     });
