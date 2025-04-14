@@ -49,11 +49,16 @@ class Shop extends Component
             }
 
             $this->dispatch('cartUpdated');
-            $this->dispatch('showNotification',  'Sản phẩm đã được thêm.', 'success');
+            $this->dispatch('swal:toast', [
+                'type' => 'success',
+                'message' => 'Đã thêm vào giỏ hàng!'
+            ]);
 
         } else {
-            $this->dispatch('showNotification', 'Vui lòng đăng nhập.', 'error');
-
+            $this->dispatch('swal:toast', [
+                'type' => 'error',
+                'message' => 'Vui lòng đăng nhập!'
+            ]);
         }
     }
 

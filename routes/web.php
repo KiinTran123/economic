@@ -44,8 +44,10 @@ Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
 })->middleware('guest:web')->name('password.request');
 
-Route::get('/gio-hang', Carts::class)->name('cart');
-
+Route::middleware(['auth'])->group(function () {
+    
+    Route::get('/gio-hang', Carts::class)->name('cart');
+});
 Route::get('/thanh-toan', Checkout::class)->name('checkout');
 
 Route::get('/cai-dat', Setting::class)->name('setting');

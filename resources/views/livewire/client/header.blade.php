@@ -92,8 +92,8 @@
                     </div>
                   </li>
                   <li class="d-flex justify-content-between pl-3 pr-3 pt-3">
-                    <a href="{{ route('cart') }}" class="btn btn-secondary">Xem giỏ hàng</a>
-                    <a href="{{ route('checkout') }}" class="btn btn-primary">Thanh toán</a>
+                    <a href="{{ route(name: 'cart') }}" class="btn btn-secondary">Xem giỏ hàng</a>
+                    <a href="{{ route(name: 'checkout') }}" class="btn btn-primary">Thanh toán</a>
                   </li>
                 </ul>
               </div>

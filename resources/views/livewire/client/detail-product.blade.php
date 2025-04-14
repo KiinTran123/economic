@@ -105,7 +105,10 @@
                                         <span class="badge badge-default">Đến năm 2023</span>
                                         <span class="badge badge-primary">Giảm 20%</span>
                                     </div>
-                                    <img src="{{ asset('storage/' . ($relatedProduct->images[0] ?? 'default.jpg')) }}" alt="{{ $relatedProduct->name }}" class="card-img-top" onclick="window.location.href='{{ route('detail-product', $relatedProduct->id) }}'" style="cursor: pointer;">
+                                    <img src="{{ asset('storage/' . ($relatedProduct->images[0] ?? 'default.jpg')) }}" 
+                                    alt="{{ $relatedProduct->name }}" class="card-img-top" 
+                                    onclick="window.location.href='{{ route('detail-product', $relatedProduct->id) }}'" 
+                                    style="cursor: pointer;">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title"><a href="{{ route('detail-product', $relatedProduct->id) }}">{{ $relatedProduct->name }}</a></h4>

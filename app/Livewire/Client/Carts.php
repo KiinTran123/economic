@@ -12,7 +12,7 @@ class Carts extends Component
     public $totalAmount;
 
 
-    
+
 
     public function increaseQuantity($cartId)
     {
@@ -27,12 +27,21 @@ class Carts extends Component
                 ->get();
         }
         $this->dispatch('cartUpdated');
+
+  
+        $this->dispatch('swal:toast', [
+            'type' => 'success',
+            'message' => 'Cập nhật thành công'
+        ]);
+        
+
     }
+
 
     public function decreaseQuantity($cartId)
     {
         $cartItem = Cart::find($cartId);
-
+    
         if ($cartItem && $cartItem->user_id == Auth::id()) {
             if ($cartItem->quantity > 1) {
                 $cartItem->quantity -= 1;
@@ -44,9 +53,24 @@ class Carts extends Component
                 ->join('products', 'cart.product_id', '=', 'products.id')
                 ->select('cart.*', 'products.name', 'products.price', 'products.images')
                 ->get();
+            
+            $this->dispatch('cartUpdated');
+    
+            // Gửi thông báo thành công hoặc thông báo sản phẩm đã bị xóa
+            if ($cartItem->quantity > 0) {
+                $this->dispatch('swal:toast', [
+                    'type' => 'success',
+                    'message' => 'Đã giảm số lượng sản phẩm trong giỏ hàng!'
+                ]);
+            } else {
+                $this->dispatch('swal:toast', [
+                    'type' => 'error',
+                    'message' => 'Sản phẩm đã bị xóa khỏi giỏ hàng!'
+                ]);
+            }
         }
-        $this->dispatch('cartUpdated');
     }
+    
 
 
 
@@ -61,7 +85,10 @@ class Carts extends Component
                 ->select('cart.*', 'products.name', 'products.price', 'products.images')
                 ->get();
         }
-
+        $this->dispatch('swal:toast', [
+            'type' => 'error',
+            'message' => 'Sản phẩm đã bị xóa khỏi giỏ hàng!'
+        ]);
         $this->dispatch('cartUpdated');
     }
     public function render()

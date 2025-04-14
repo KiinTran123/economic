@@ -24,14 +24,9 @@
 
 <body>
 
-    @livewire('notification')
     @livewire('client.header')
     {{ $slot }}
     @livewire('client.footer')
-
-
-
-
 
     @if (session('success'))
     <script>
@@ -45,24 +40,30 @@
             });
         });
     </script>
-@endif
+    @endif
 
-@push('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        $('.owl-carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: true,
-            responsive: {
-                0: { items: 1 },
-                600: { items: 3 },
-                1000: { items: 4 }
-            }
+    @push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 4
+                    }
+                }
+            });
         });
-    });
-</script>
-@endpush
+    </script>
+    @endpush
 
 
 
@@ -77,6 +78,24 @@
     <script type="text/javascript" src="{{ asset('assets/packages/thumbelina/thumbelina.js') }}  "></script>
     <script type="text/javascript" src="{{ asset('assets/packages/bootstrap-touchspin/bootstrap-touchspin.js') }}  "></script>
     <script type="text/javascript" src="{{ asset('assets/js/theme.js') }}  "></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        window.addEventListener('swal:toast', event => {
+            const toastData = Array.isArray(event.detail) ? event.detail[0] : event.detail;
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: toastData.type || 'info',
+                title: toastData.message || 'Đã có thông báo!',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>

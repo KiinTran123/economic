@@ -44,7 +44,10 @@ class DetailProduct extends Component
         }
 
         $this->dispatch('cartUpdated');
-        session()->flash('success', 'Đã thêm vào giỏ hàng!');
+        $this->dispatch('swal:toast', [
+            'type' => 'success',
+            'message' => 'Đã thêm vào giỏ hàng!'
+        ]);
     }
     public function mount($id)
     {
