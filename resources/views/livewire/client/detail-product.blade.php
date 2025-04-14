@@ -25,11 +25,11 @@
                     <div class="slider-thumbnail">
                         <ul class="d-flex flex-wrap p-0 list-unstyled">
                             @foreach ($product->images ?? ['default.jpg'] as $image)
-                                <li>
-                                    <a href="{{ asset('storage/' . $image) }}" rel="gallerySwitchOnMouseOver: true, popupWin:'{{ asset('storage/' . $image) }}', useZoom: 'cloudZoom', smallImage: '{{ asset('storage/' . $image) }}'" class="cloud-zoom-gallery">
-                                        <img itemprop="image" src="{{ asset('storage/' . $image) }}" style="width:135px;">
-                                    </a>
-                                </li>
+                            <li>
+                                <a href="{{ asset('storage/' . $image) }}" rel="gallerySwitchOnMouseOver: true, popupWin:'{{ asset('storage/' . $image) }}', useZoom: 'cloudZoom', smallImage: '{{ asset('storage/' . $image) }}'" class="cloud-zoom-gallery">
+                                    <img itemprop="image" src="{{ asset('storage/' . $image) }}" style="width:135px;">
+                                </a>
+                            </li>
                             @endforeach
                         </ul>
                     </div>
@@ -61,14 +61,26 @@
                     </p>
                     <div class="row">
                         <div class="col-sm-5">
-                            <input class="vertical-spin" type="number" min="1" max="{{ $product->quantity }}" value="1" name="quantity">
+                            <input type="number"
+                                min="1"
+                                max="{{ $product->quantity }}"
+                                wire:model="quantity"
+                                class="form-control">
                         </div>
                         <div class="col-sm-6"><span class="pt-1 d-inline-block">Gói ({{ $product->unit ?? '250 gram' }})</span></div>
                     </div>
 
-                    <button class="mt-3 btn btn-primary btn-lg" onclick="addToCart({{ $product->id }})">
+                    <button class="mt-3 btn btn-primary btn-lg" wire:click="addToCart">
                         <i class="fa fa-shopping-basket"></i> Thêm vào giỏ hàng
                     </button>
+
+                    @if (session()->has('success'))
+                    <div class="alert alert-success mt-2">{{ session('success') }}</div>
+                    @endif
+
+                    @if (session()->has('error'))
+                    <div class="alert alert-danger mt-2">{{ session('error') }}</div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -81,32 +93,32 @@
                     <h2 class="title">Sản phẩm liên quan</h2>
                     <div class="product-carousel owl-carousel">
                         @foreach ($relatedProducts as $relatedProduct)
-                            <div class="item">
-                                <div class="card card-product">
-                                    <div class="card-ribbon">
-                                        <div class="card-ribbon-container right">
-                                            <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
-                                        </div>
-                                    </div>
-                                    <div class="card-badge">
-                                        <div class="card-badge-container left">
-                                            <span class="badge badge-default">Đến năm 2023</span>
-                                            <span class="badge badge-primary">Giảm 20%</span>
-                                        </div>
-                                        <img src="{{ asset('storage/' . ($relatedProduct->images[0] ?? 'default.jpg')) }}" alt="{{ $relatedProduct->name }}" class="card-img-top" onclick="window.location.href='{{ route('detail-product', $relatedProduct->id) }}'" style="cursor: pointer;">
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="card-title"><a href="{{ route('detail-product', $relatedProduct->id) }}">{{ $relatedProduct->name }}</a></h4>
-                                        <div class="card-price">
-                                            <span class="discount">{{ number_format($relatedProduct->price * 1.2, 0, ',', '.') }}đ</span>
-                                            <span class="reguler">{{ number_format($relatedProduct->price, 0, ',', '.') }}đ</span>
-                                        </div>
-                                        <button wire:click="addToCart({{ $relatedProduct->id }})" class="btn btn-block btn-primary mt-2">
-                                            Thêm vào Giỏ Hàng
-                                        </button>
+                        <div class="item">
+                            <div class="card card-product">
+                                <div class="card-ribbon">
+                                    <div class="card-ribbon-container right">
+                                        <span class="ribbon ribbon-primary">ĐẶC BIỆT</span>
                                     </div>
                                 </div>
+                                <div class="card-badge">
+                                    <div class="card-badge-container left">
+                                        <span class="badge badge-default">Đến năm 2023</span>
+                                        <span class="badge badge-primary">Giảm 20%</span>
+                                    </div>
+                                    <img src="{{ asset('storage/' . ($relatedProduct->images[0] ?? 'default.jpg')) }}" alt="{{ $relatedProduct->name }}" class="card-img-top" onclick="window.location.href='{{ route('detail-product', $relatedProduct->id) }}'" style="cursor: pointer;">
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title"><a href="{{ route('detail-product', $relatedProduct->id) }}">{{ $relatedProduct->name }}</a></h4>
+                                    <div class="card-price">
+                                        <span class="discount">{{ number_format($relatedProduct->price * 1.2, 0, ',', '.') }}đ</span>
+                                        <span class="reguler">{{ number_format($relatedProduct->price, 0, ',', '.') }}đ</span>
+                                    </div>
+                                    <button wire:click="addToCart({{ $relatedProduct->id }})" class="btn btn-block btn-primary mt-2">
+                                        Thêm vào Giỏ Hàng
+                                    </button>
+                                </div>
                             </div>
+                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -114,5 +126,3 @@
         </div>
     </section>
 </div>
-
-

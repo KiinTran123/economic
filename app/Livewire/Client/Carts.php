@@ -11,6 +11,9 @@ class Carts extends Component
     public $productsCart;
     public $totalAmount;
 
+
+    
+
     public function increaseQuantity($cartId)
     {
         $cartItem = Cart::find($cartId);
