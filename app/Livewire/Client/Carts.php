@@ -28,12 +28,12 @@ class Carts extends Component
         }
         $this->dispatch('cartUpdated');
 
-  
+
         $this->dispatch('swal:toast', [
             'type' => 'success',
             'message' => 'Cập nhật thành công'
         ]);
-        
+
 
     }
 
@@ -41,7 +41,7 @@ class Carts extends Component
     public function decreaseQuantity($cartId)
     {
         $cartItem = Cart::find($cartId);
-    
+
         if ($cartItem && $cartItem->user_id == Auth::id()) {
             if ($cartItem->quantity > 1) {
                 $cartItem->quantity -= 1;
@@ -53,9 +53,9 @@ class Carts extends Component
                 ->join('products', 'cart.product_id', '=', 'products.id')
                 ->select('cart.*', 'products.name', 'products.price', 'products.images')
                 ->get();
-            
+
             $this->dispatch('cartUpdated');
-    
+
             // Gửi thông báo thành công hoặc thông báo sản phẩm đã bị xóa
             if ($cartItem->quantity > 0) {
                 $this->dispatch('swal:toast', [
@@ -70,7 +70,7 @@ class Carts extends Component
             }
         }
     }
-    
+
 
 
 
@@ -90,6 +90,18 @@ class Carts extends Component
             'message' => 'Sản phẩm đã bị xóa khỏi giỏ hàng!'
         ]);
         $this->dispatch('cartUpdated');
+    }
+
+    public function checkout()
+    {
+        // Kiểm tra nếu giỏ hàng không rỗng
+        if ($this->productsCart->isEmpty()) {
+            session()->flash('error', 'Giỏ hàng của bạn đang trống!');
+            return;
+        }
+
+        // Chuyển hướng đến trang thanh toán
+        return redirect()->route('checkout');
     }
     public function render()
     {

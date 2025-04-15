@@ -17,6 +17,7 @@ class Setting extends Component
     public $address = '';
     public $city = '';
     public $ward = '';
+    public $address_detail = '';
     public $password = '';
     public $password_confirmation = '';
     public $avatar = null;
@@ -36,6 +37,7 @@ class Setting extends Component
             'address' => 'nullable|string|max:500',
             'city' => 'nullable|string|max:100',
             'ward' => 'nullable|string|max:100',
+            'address_detail' => 'nullable|string|max:500',
             'password' => 'nullable|string|min:8|same:password_confirmation',
             'avatar' => 'nullable|image|max:1024',
         ];
@@ -51,6 +53,7 @@ class Setting extends Component
             $this->address = $user->address ?? '';
             $this->city = $user->city ?? '';
             $this->ward = $user->ward ?? '';
+            $this->address_detail = $user->address_detail ?? '';
             $this->currentAvatar = $user->avatar ?? 'default.png';
 
             $this->provinces = $this->fetchProvinces();
@@ -72,8 +75,9 @@ class Setting extends Component
         }
     }
 
-    public function updatedSelectedProvince($provinceCode)
+    public function updateSelectedProvince()
     {
+        $provinceCode = $this->selectedProvince;
         $this->districts = $this->fetchDistricts($provinceCode);
         $this->selectedDistrict = null;
         $this->wards = [];
@@ -81,11 +85,12 @@ class Setting extends Component
         $this->ward = '';
     }
 
-    public function updatedSelectedDistrict($districtCode)
+    public function updateSelectedDistrict()
     {
+        $districtCode = $this->selectedDistrict;
         $this->wards = $this->fetchWards($districtCode);
         $this->address = $districtCode;
-        $this->ward = ''; 
+        $this->ward = '';
     }
 
     public function updated($propertyName)
@@ -106,6 +111,7 @@ class Setting extends Component
             'address' => $this->address,
             'city' => $this->city,
             'ward' => $this->ward,
+            'address_detail' => $this->address_detail,
         ];
 
         if ($this->avatar) {

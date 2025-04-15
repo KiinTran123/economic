@@ -94,6 +94,14 @@
             });
         });
     </script>
+    <script>
+document.addEventListener('livewire:initialized', () => {
+    Livewire.on('show-modal', ({ id }) => {
+        const modal = new bootstrap.Modal(document.getElementById(id));
+        modal.show();
+    });
+});
+</script>
 
 
 </body>

@@ -79,7 +79,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <h6 class="mt-3">Tổng cộng: {{ number_format($totalAmount, 0, ',', '.') }} VND </h6>
-                    <a href="checkout.html" class="btn btn-lg btn-primary">Thanh toán <i class="fa fa-long-arrow-right"></i></a>
+                    <a href="{{ route(name: 'checkout') }}" class="btn btn-lg btn-primary">Thanh toán <i class="fa fa-long-arrow-right"></i></a>
                 </div>
             </div>
         </div>

@@ -1,4 +1,3 @@
-
 <div id="page-content" class="page-content">
     <div class="banner">
         <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
@@ -15,52 +14,79 @@
 
     <section id="checkout">
         <div class="container">
+            @if (session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+            @endif
             <div class="row">
                 <div class="col-xs-12 col-sm-7">
                     <h5 class="mb-3">THÔNG TIN HÓA ĐƠN</h5>
-                    <!-- Thông tin hóa đơn -->
-                    <form action="#" class="bill-detail">
+                    <form wire:submit.prevent="placeOrder" class="bill-detail">
                         <fieldset>
-                            <div class="form-group row">
-                                <div class="col">
-                                    <input class="form-control" placeholder="Họ và tên" type="text">
-                                </div>
-                                <div class="col">
-                                    <input class="form-control" placeholder="Họ" type="text">
-                                </div>
+                            <div class="form-group">
+                                <input wire:model="name" class="form-control" placeholder="Họ và tên" type="text">
+                                @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Tên công ty" type="text">
+                                <input wire:model="email" class="form-control" placeholder="Địa chỉ Email" type="email">
+                                @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" placeholder="Địa chỉ"></textarea>
+                                <input wire:model="phone" class="form-control" placeholder="Số điện thoại" type="tel">
+                                @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Thành phố" type="text">
+                                <label for="province">Tỉnh/Thành phố</label>
+                                <select wire:model="selectedProvince" wire:change="updateSelectedProvince" class="form-control" id="province">
+                                    <option value="">Chọn Tỉnh/Thành phố</option>
+                                    @foreach($provinces as $province)
+                                        <option value="{{ $province['code'] }}">{{ $province['name'] }}</option>
+                                    @endforeach
+                                </select>
+                                @error('selectedProvince') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Tỉnh / Quốc gia" type="text">
+                                <label for="district">Quận/Huyện</label>
+                                <select wire:model="selectedDistrict" wire:change="updateSelectedDistrict" class="form-control" id="district">
+                                    <option value="">Chọn Quận/Huyện</option>
+                                    @foreach($districts as $district)
+                                        <option value="{{ $district['code'] }}">{{ $district['name'] }}</option>
+                                    @endforeach
+                                </select>
+                                @error('selectedDistrict') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Mã bưu điện" type="text">
-                            </div>
-                            <div class="form-group row">
-                                <div class="col">
-                                    <input class="form-control" placeholder="Địa chỉ Email" type="email">
-                                </div>
-                                <div class="col">
-                                    <input class="form-control" placeholder="Số điện thoại" type="tel">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox"> Gửi đến địa chỉ khác?
+                                <label for="ward">Phường/Xã</label>
+                                <select wire:model="selectedWard"  class="form-control" id="ward">
+                                    <option value="">Chọn Phường/Xã</option>
+                                    @foreach($wards as $wardOption)
+                                        <option value="{{ $wardOption['code'] }}">{{ $wardOption['name'] }}</option>
+                                    @endforeach
+                                </select>
+                                @error('selectedWard') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" placeholder="Ghi chú đơn hàng"></textarea>
+                                <input wire:model="address_detail" class="form-control" placeholder="Chi tiết địa chỉ (số nhà, tên đường, tòa nhà, tầng, v.v.)" type="text">
+                                @error('address_detail') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
+                            <h5 class="mb-3">PHƯƠNG THỨC THANH TOÁN</h5>
+                            <div class="form-check">
+                                <input wire:model="paymentMethod" class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod" checked disabled>
+                                <label class="form-check-label" for="cod">
+                                    Thanh toán khi nhận hàng
+                                </label>
+                            </div>
+                            @error('paymentMethod') <span class="text-danger">{{ $message }}</span> @enderror
+                            <p class="text-right mt-3">
+                                <input wire:model="termsAccepted" type="checkbox" id="terms">
+                                <label for="terms"> Tôi đã đọc và đồng ý với <a href="#">điều khoản & điều kiện</a></label>
+                                @error('termsAccepted') <span class="text-danger">{{ $message }}</span> @enderror
+                            </p>
+                            <button type="submit" class="btn btn-primary float-right">TIẾP TỤC THANH TOÁN <i class="fa fa-check"></i></button>
+                            <div class="clearfix"></div>
                         </fieldset>
                     </form>
-                    <!-- Thông tin hóa đơn kết thúc -->
                 </div>
                 <div class="col-xs-12 col-sm-5">
                     <div class="holder">
@@ -74,38 +100,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($productsCart as $cartItem)
                                     <tr>
                                         <td>
-                                            Cá tươi x1
+                                            {{ $cartItem->name }} (x{{ $cartItem->quantity }})
                                         </td>
                                         <td class="text-right">
-                                            Rp 30.000
+                                            {{ number_format($cartItem->total, 0, ',', '.') }} VND
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            Bít tết x1
-                                        </td>
-                                        <td class="text-right">
-                                            Rp 120.000
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Rau củ trộn x1
-                                        </td>
-                                        <td class="text-right">
-                                            Rp 30.000
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
-                                <tfooter>
+                                <tfoot>
                                     <tr>
                                         <td>
                                             <strong>Tổng giỏ hàng</strong>
                                         </td>
                                         <td class="text-right">
-                                            Rp 180.000
+                                            {{ number_format($totalAmount, 0, ',', '.') }} VND
                                         </td>
                                     </tr>
                                     <tr>
@@ -113,7 +125,7 @@
                                             <strong>Phí vận chuyển</strong>
                                         </td>
                                         <td class="text-right">
-                                            Rp 20.000
+                                            {{ number_format($shippingFee, 0, ',', '.') }} VND
                                         </td>
                                     </tr>
                                     <tr>
@@ -121,34 +133,16 @@
                                             <strong>TỔNG ĐƠN HÀNG</strong>
                                         </td>
                                         <td class="text-right">
-                                            <strong>Rp 200.000</strong>
+                                            <strong>{{ number_format($totalAmount + $shippingFee, 0, ',', '.') }} VND</strong>
                                         </td>
                                     </tr>
-                                </tfooter>
+                                </tfoot>
                             </table>
                         </div>
-
-                        <h5 class="mb-3">PHƯƠNG THỨC THANH TOÁN</h5>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                Chuyển khoản ngân hàng trực tiếp
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                Thẻ tín dụng
-                            </label>
-                        </div>
-                    </div>
-                    <p class="text-right mt-3">
-                        <input checked="" type="checkbox"> Tôi đã đọc và đồng ý với <a href="#">điều khoản & điều kiện</a>
-                    </p>
-                    <a href="#" class="btn btn-primary float-right">TIẾP TỤC THANH TOÁN <i class="fa fa-check"></i></a>
-                    <div class="clearfix">
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 </div>
+

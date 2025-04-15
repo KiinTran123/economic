@@ -3,11 +3,246 @@
 namespace App\Livewire\Client;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Cart;
+use App\Models\Order;
+use App\Models\OrderDetail;
+use App\Models\User;
+use App\Models\Payment;
+use Illuminate\Support\Facades\Http;
 
 class Checkout extends Component
 {
+    public $name = '';
+    public $email = '';
+    public $phone = '';
+    public $address_detail = '';
+    public $orderNotes = '';
+    public $paymentMethod = 'cod';
+    public $termsAccepted = false;
+    public $productsCart = [];
+    public $totalAmount = 0;
+    public $shippingFee = 0;
+    public $provinces = [];
+    public $districts = [];
+    public $wards = [];
+    public $selectedProvince = null;
+    public $selectedDistrict = null;
+    public $selectedWard = null;
+
+    protected $rules = [
+        'name' => 'required|max:255',
+        'email' => 'required|email|max:255',
+        'phone' => 'required|string|max:20',
+        'selectedProvince' => 'required|string|max:100',
+        'selectedDistrict' => 'required|string|max:100',
+        'selectedWard' => 'required|string|max:100',
+        'address_detail' => 'nullable|string|max:500',
+        'termsAccepted' => 'accepted',
+        'paymentMethod' => 'required|in:cod',
+    ];
+
+    public function mount()
+    {
+        if (Auth::check()) {
+            $user = Auth::user();
+            $this->name = $user->name;
+            $this->email = $user->email;
+            $this->phone = $user->phone;
+            $this->address_detail = $user->address_detail ?? '';
+            $this->selectedProvince = $user->city ?? null;
+            $this->selectedDistrict = $user->address ?? null;
+            $this->selectedWard = $user->ward ?? null;
+
+            $this->provinces = $this->fetchProvinces();
+
+            if ($this->selectedProvince) {
+                $this->districts = $this->fetchDistricts($this->selectedProvince);
+            }
+
+            if ($this->selectedDistrict) {
+                $this->wards = $this->fetchWards($this->selectedDistrict);
+            }
+
+            $this->loadCart();
+            $this->calculateShippingFee();
+        } else {
+            return redirect()->route('login')->with('error', 'Vui lòng đăng nhập để thanh toán.');
+        }
+    }
+
+    public function loadCart()
+    {
+        $this->productsCart = Cart::where('user_id', Auth::id())
+            ->join('products', 'cart.product_id', '=', 'products.id')
+            ->select('cart.*', 'products.name', 'products.price', 'products.images')
+            ->get();
+
+        foreach ($this->productsCart as $cartItem) {
+            $cartItem->total = $cartItem->quantity * $cartItem->price;
+        }
+
+        $this->totalAmount = $this->productsCart->sum('total');
+    }
+
+    public function updateSelectedProvince()
+    {
+        $this->districts = $this->fetchDistricts($this->selectedProvince);
+        $this->selectedDistrict = null;
+        $this->wards = [];
+        $this->selectedWard = null;
+        $this->calculateShippingFee();
+    }
+
+    public function updateSelectedDistrict()
+    {
+        $this->wards = $this->fetchWards($this->selectedDistrict);
+        $this->selectedWard = null;
+        $this->calculateShippingFee();
+    }
+
+    public function updatedSelectedWard()
+    {
+        $this->calculateShippingFee();
+    }
+
+    private function fetchProvinces()
+    {
+        $response = Http::get('https://provinces.open-api.vn/api/');
+        if ($response->successful()) {
+            return $response->json();
+        }
+        return [];
+    }
+
+    private function fetchDistricts($provinceCode)
+    {
+        $response = Http::get("https://provinces.open-api.vn/api/p/{$provinceCode}?depth=2");
+        if ($response->successful() && isset($response->json()['districts'])) {
+            return $response->json()['districts'];
+        }
+        return [];
+    }
+
+    private function fetchWards($districtCode)
+    {
+        $response = Http::get("https://provinces.open-api.vn/api/d/{$districtCode}?depth=2");
+        if ($response->successful() && isset($response->json()['wards'])) {
+            return $response->json()['wards'];
+        }
+        return [];
+    }
+
+    public function calculateShippingFee()
+    {
+        if (!$this->selectedProvince) {
+            $this->shippingFee = 0;
+            return;
+        }
+
+        if ($this->totalAmount >= 500000) {
+            $this->shippingFee = 0;
+            return;
+        }
+
+        $hanoiCode = '01';
+        $hcmCode = '79';
+        $canthocode = '92';
+
+        if (in_array($this->selectedProvince, [$hanoiCode, $hcmCode, $canthocode])) {
+            $this->shippingFee = 15000;
+        } else {
+            $this->shippingFee = 30000;
+        }
+
+        $innerCityDistricts = ['001', '002', '003'];
+        if ($this->selectedDistrict && in_array($this->selectedDistrict, $innerCityDistricts)) {
+            $this->shippingFee -= 5000;
+        }
+    }
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
+    public function placeOrder()
+    {
+        $this->validate();
+        $this->loadCart();
+        // $this->mount();
+
+        if ($this->productsCart->isEmpty()) {
+            $this->dispatch('swal:toast', [
+                'type' => 'error',
+                'message' => 'Giỏ hàng của bạn đang trống!'
+            ]);
+            return;
+        }
+
+
+        $order = Order::create([
+            'user_id' => Auth::id(),
+            'total_price' => $this->totalAmount + $this->shippingFee,
+            'status' => 'pending',
+            'province_code' => $this->selectedProvince,
+            'district_code' => $this->selectedDistrict,
+            'ward_code' => $this->selectedWard,
+            'address_detail' => $this->address_detail,
+        ]);
+
+        // Tạo chi tiết đơn hàng
+        foreach ($this->productsCart as $cartItem) {
+            OrderDetail::create([
+                'order_id' => $order->id,
+                'product_id' => $cartItem->product_id,
+                'quantity' => $cartItem->quantity,
+                'price' => $cartItem->price,
+            ]);
+        }
+
+        // Lưu thông tin thanh toán COD
+        Payment::create([
+            'order_id' => $order->id,
+            'user_id' => Auth::id(),
+            'amount' => $this->totalAmount + $this->shippingFee,
+            'payment_method' => 'cod',
+            'status' => 'pending',
+        ]);
+
+        // Cập nhật thông tin người dùng
+        $user = Auth::user();
+        $user->update([
+            'name' => trim($this->name),
+            'email' => $this->email,
+            'phone' => $this->phone,
+            'address' => $this->selectedDistrict,
+            'city' => $this->selectedProvince,
+            'ward' => $this->selectedWard,
+            'address_detail' => $this->address_detail,
+        ]);
+
+        // Xóa giỏ hàng
+        Cart::where('user_id', Auth::id())->delete();
+
+        $this->dispatch('swal:toast', [
+            'type' => 'success',
+            'message' => 'Đặt hàng thành công!'
+        ]);
+
+        // Chuyển hướng đến trang cảm ơn
+        return redirect()->route('home')->with('success', 'Cảm ơn bạn đã đặt hàng!');
+    }
+
     public function render()
     {
-        return view('livewire.client.checkout')->layout('components.layouts.app') ->title('Hóa đơn');
+        return view('livewire.client.checkout', [
+            'productsCart' => $this->productsCart,
+            'totalAmount' => $this->totalAmount,
+            'shippingFee' => $this->shippingFee,
+            'provinces' => $this->provinces,
+            'districts' => $this->districts,
+            'wards' => $this->wards,
+        ])->layout('components.layouts.app')->title('Thanh Toán');
     }
 }
