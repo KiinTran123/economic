@@ -49,7 +49,7 @@
               </div>
               @endauth
             </li>
-
+@auth
             <li class="nav-item dropdown">
               <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary">{{ $countProducts }}</span>
@@ -98,6 +98,7 @@
                 </ul>
               </div>
             </li>
+            @endauth
           </ul>
         </div>
 

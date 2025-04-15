@@ -124,8 +124,10 @@ class Setting extends Component
         if (!empty($this->password)) {
             $user->update(['password' => bcrypt($this->password)]);
         }
-
-        session()->flash('message', 'Thông tin đã được cập nhật thành công!');
+        $this->dispatch('swal:toast', [
+            'type' => 'success',
+            'message' => 'Thông tin đã được cập nhật thành công!!'
+        ]);
         $this->currentAvatar = $user->fresh()->avatar ?? 'default.png';
     }
 
