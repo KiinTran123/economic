@@ -87,11 +87,20 @@ class ProductResource extends Resource
           ->circular()
           ->limit(3)
           ->limitedRemainingText(),
-
-        TextColumn::make('price')
-          ->money()
+          
+          TextColumn::make('price')
           ->sortable()
-          ->label('Giá'),
+          ->label('Giá')
+          ->formatStateUsing(function ($state) {
+              // Kiểm tra nếu giá trị không rỗng và là số
+              if (!is_numeric($state)) {
+                  return $state;
+              }
+      
+              // Định dạng số tiền và thêm VNĐ phía sau
+              return number_format($state, 0, ',', '.') . ' đ'; // Hoặc 'VND'
+          }),
+      
 
         TextColumn::make('quantity')
           ->label('Số lượng')

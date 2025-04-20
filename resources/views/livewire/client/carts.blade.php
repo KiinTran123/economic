@@ -38,10 +38,10 @@
 
                                     <td>
                                         {{ $cartItem->name }}<br>
-                                        <small>1000g</small>
+                                        <small>1KG</small>
                                     </td>
                                     <td>
-                                        {{ $cartItem->price }} Vnd
+                                        {{ $cartItem->price }} VNĐ
                                     </td>
                                     <td>
                                         <div class="input-group">
@@ -52,7 +52,7 @@
 
                                     </td>
                                     <td>
-                                        {{ number_format($cartItem->total, 0, ',', '.') }} Vnd
+                                        {{ number_format($cartItem->total, 0, ',', '.') }} VNĐ
                                     </td>
                                     <td>
                                         <a wire:click="removeFromCart({{ $cartItem->id }})" href="javasript:void" class="text-danger"><i class="fa fa-times"></i></a>
@@ -71,12 +71,12 @@
                     <a href=" {{ route('shop') }}" class="btn btn-default">Tiếp tục mua sắm</a>
                 </div>
                 <div class="col text-right">
-                    <div class="input-group w-50 float-right">
+                    <!-- <div class="input-group w-50 float-right">
                         <input class="form-control" placeholder="Mã giảm giá" type="text">
                         <div class="input-group-append">
                             <button class="btn btn-default" type="button">Áp dụng</button>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="clearfix"></div>
                     <h6 class="mt-3">Tổng cộng: {{ number_format($totalAmount, 0, ',', '.') }} VND </h6>
                     <a href="{{ route(name: 'checkout') }}" class="btn btn-lg btn-primary">Thanh toán <i class="fa fa-long-arrow-right"></i></a>

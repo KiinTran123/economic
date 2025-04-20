@@ -117,7 +117,7 @@ class UserResource extends Resource
                     ->size(50)
                     ->getStateUsing(fn($record) => $record && $record->avatar
                         ? asset('storage/' . $record->avatar)
-                        : asset('images/default-avatar.png')),
+                        : asset('storage/avatars/default.png')),
 
 
                 TextColumn::make('email')

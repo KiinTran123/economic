@@ -67,7 +67,7 @@
                                 wire:model="quantity"
                                 class="form-control">
                         </div>
-                        <div class="col-sm-6"><span class="pt-1 d-inline-block">Gói ({{ $product->unit ?? '250 gram' }})</span></div>
+                        <div class="col-sm-6"><span class="pt-1 d-inline-block">({{ $product->unit ??'/KG' }})</span></div>
                     </div>
 
                     <button class="mt-3 btn btn-primary btn-lg" wire:click="addToCart">

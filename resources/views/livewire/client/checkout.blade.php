@@ -106,7 +106,7 @@
                                             {{ $cartItem->name }} (x{{ $cartItem->quantity }})
                                         </td>
                                         <td class="text-right">
-                                            {{ number_format($cartItem->total, 0, ',', '.') }} VND
+                                            {{ number_format($cartItem->total, 0, ',', '.') }} VNĐ
                                         </td>
                                     </tr>
                                     @endforeach
@@ -117,7 +117,7 @@
                                             <strong>Tổng giỏ hàng</strong>
                                         </td>
                                         <td class="text-right">
-                                            {{ number_format($totalAmount, 0, ',', '.') }} VND
+                                            {{ number_format($totalAmount, 0, ',', '.') }} VNĐ
                                         </td>
                                     </tr>
                                     <tr>
@@ -125,7 +125,7 @@
                                             <strong>Phí vận chuyển</strong>
                                         </td>
                                         <td class="text-right">
-                                            {{ number_format($shippingFee, 0, ',', '.') }} VND
+                                            {{ number_format($shippingFee, 0, ',', '.') }} VNĐ
                                         </td>
                                     </tr>
                                     <tr>
@@ -133,7 +133,7 @@
                                             <strong>TỔNG ĐƠN HÀNG</strong>
                                         </td>
                                         <td class="text-right">
-                                            <strong>{{ number_format($totalAmount + $shippingFee, 0, ',', '.') }} VND</strong>
+                                            <strong>{{ number_format($totalAmount + $shippingFee, 0, ',', '.') }} VNĐ</strong>
                                         </td>
                                     </tr>
                                 </tfoot>
