@@ -16,6 +16,7 @@ use App\Livewire\Client\Setting;
 use App\Livewire\Client\Shop;
 use App\Livewire\Client\Terms;
 use App\Livewire\Client\Transaction;
+use App\Livewire\Client\VNPayCallback;
 use Illuminate\Support\Facades\Route;
 
 // Route công khai (không cần đăng nhập)
@@ -39,22 +40,27 @@ Route::get('/cua-hang', Shop::class)->name('shop');
 
 Route::get('/dieu-khoan', Terms::class)->name('terms');
 
+Route::get('/vnpay/callback', VNPayCallback::class)->name('vnpay-callback');
+
 Route::get('/forgot-password', function () {
 
     return view('auth.forgot-password');
 })->middleware('guest:web')->name('password.request');
 
 Route::middleware(['auth'])->group(function () {
-    
-    Route::get('/gio-hang', Carts::class)->name('cart');
-});
+
+Route::get('/gio-hang', Carts::class)->name('cart');
+
+
 Route::get('/thanh-toan', Checkout::class)->name('checkout');
 
 Route::get('/cai-dat', Setting::class)->name('setting');
 
 Route::get('/giao-dich', Transaction::class)->name('transaction');
 
-Route::get('/forgot-password', ForgotPassword::class)->name('password.request');
+});
+
+Route::get('/forgot-password', action: ForgotPassword::class)->name('password.request');
 
 
 Route::get('/reset-password/{token}', ResetPassword::class)
@@ -62,30 +68,4 @@ Route::get('/reset-password/{token}', ResetPassword::class)
     ->name('password.reset');
 
 
-// Route::get('/api/suggestions/{type}', function (Request $request, $type) {
-//         $query = $request->query('query');
-//         $apiKey = env('GOONG_API_KEY');
 
-//         if (!$apiKey) {
-//             return response()->json(['error' => 'API key not set'], 500);
-//         }
-
-//         $url = "https://rsapi.goong.io/Place/AutoComplete?input=" . urlencode($query) . "&api_key=" . $apiKey;
-
-//         try {
-//             $response = file_get_contents($url);
-//             $data = json_decode($response, true);
-
-//             if ($data && $data['status'] == 'OK') {
-//                 $suggestions = [];
-//                 foreach ($data['predictions'] as $prediction) {
-//                     $suggestions[] = $prediction['description'];
-//                 }
-//                 return response()->json($suggestions);
-//             } else {
-//                 return response()->json([], 200); // Trả về mảng rỗng nếu không có gợi ý
-//             }
-//         } catch (\Exception $e) {
-//             return response()->json(['error' => $e->getMessage()], 500); // Trả về lỗi nếu có lỗi xảy ra trong quá trình gọi API
-//         }
-//     });

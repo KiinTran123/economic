@@ -12,14 +12,14 @@ class Login extends Component
     public $email;
     public $password;
     public $remember = false;
- // Trong Livewire Component
-// Trong Livewire Component
+
 public function login()
 {
     $this->validate([
         'email' => 'required|email',
         'password' => 'required',
     ]);
+
 
     if (Auth::guard('web')->attempt([
         'email' => $this->email,

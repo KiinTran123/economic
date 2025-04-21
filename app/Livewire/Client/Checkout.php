@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderDetail;
-use App\Models\User;
 use App\Models\Payment;
 use Illuminate\Support\Facades\Http;
 
@@ -39,7 +38,7 @@ class Checkout extends Component
         'selectedWard' => 'required|string|max:100',
         'address_detail' => 'nullable|string|max:500',
         'termsAccepted' => 'accepted',
-        'paymentMethod' => 'required|in:cod',
+        'paymentMethod' => 'required|in:cod,vnpay',
     ];
 
     public function mount()
@@ -170,7 +169,6 @@ class Checkout extends Component
     {
         $this->validate();
         $this->loadCart();
-        // $this->mount();
 
         if ($this->productsCart->isEmpty()) {
             $this->dispatch('swal:toast', [
@@ -180,7 +178,7 @@ class Checkout extends Component
             return;
         }
 
-
+        // Create the order
         $order = Order::create([
             'user_id' => Auth::id(),
             'total_price' => $this->totalAmount + $this->shippingFee,
@@ -191,7 +189,7 @@ class Checkout extends Component
             'address_detail' => $this->address_detail,
         ]);
 
-        // Tạo chi tiết đơn hàng
+        // Create order details
         foreach ($this->productsCart as $cartItem) {
             OrderDetail::create([
                 'order_id' => $order->id,
@@ -201,37 +199,104 @@ class Checkout extends Component
             ]);
         }
 
-        // Lưu thông tin thanh toán COD
-        Payment::create([
-            'order_id' => $order->id,
-            'user_id' => Auth::id(),
-            'amount' => $this->totalAmount + $this->shippingFee,
-            'payment_method' => 'cod',
-            'status' => 'pending',
-        ]);
+        // Handle payment based on method
+        if ($this->paymentMethod === 'cod') {
+            // COD Payment
+            Payment::create([
+                'order_id' => $order->id,
+                'user_id' => Auth::id(),
+                'amount' => $this->totalAmount + $this->shippingFee,
+                'payment_method' => 'cod',
+                'status' => 'pending',
+            ]);
 
-        // Cập nhật thông tin người dùng
-        $user = Auth::user();
-        $user->update([
-            'name' => trim($this->name),
-            'email' => $this->email,
-            'phone' => $this->phone,
-            'address' => $this->selectedDistrict,
-            'city' => $this->selectedProvince,
-            'ward' => $this->selectedWard,
-            'address_detail' => $this->address_detail,
-        ]);
+            // Update user information
+            $user = Auth::user();
+            $user->update([
+                'name' => trim($this->name),
+                'email' => $this->email,
+                'phone' => $this->phone,
+                'address' => $this->selectedDistrict,
+                'city' => $this->selectedProvince,
+                'ward' => $this->selectedWard,
+                'address_detail' => $this->address_detail,
+            ]);
 
-        // Xóa giỏ hàng
-        Cart::where('user_id', Auth::id())->delete();
+            // Clear cart
+            Cart::where('user_id', Auth::id())->delete();
 
-        $this->dispatch('swal:toast', [
-            'type' => 'success',
-            'message' => 'Đặt hàng thành công!'
-        ]);
+            $this->dispatch('swal:toast', [
+                'type' => 'success',
+                'message' => 'Đặt hàng thành công!'
+            ]);
 
-        // Chuyển hướng đến trang cảm ơn
-        return redirect()->route('home')->with('success', 'Cảm ơn bạn đã đặt hàng!');
+            return redirect()->route('home')->with('success', 'Cảm ơn bạn đã đặt hàng!');
+        } elseif ($this->paymentMethod === 'vnpay') {
+            // VNPay Payment
+            $vnp_TmnCode = env('VNPAY_TMN_CODE');
+            $vnp_HashSecret = env('VNPAY_HASH_SECRET');
+            $vnp_Url = env('VNPAY_URL', 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html');
+            $vnp_ReturnUrl = route('vnpay-callback');
+
+            $vnp_TxnRef = $order->id . '_' . time();
+            $vnp_Amount = ($this->totalAmount + $this->shippingFee) * 100;
+            $vnp_Locale = 'vn';
+            $vnp_BankCode = 'NCB';
+            $vnp_IpAddr = request()->ip();
+
+            $inputData = [
+                'vnp_Version' => '2.1.0',
+                'vnp_TmnCode' => $vnp_TmnCode,
+                'vnp_Amount' => $vnp_Amount,
+                'vnp_Command' => 'pay',
+                'vnp_CreateDate' => now()->setTimezone('Asia/Ho_Chi_Minh')->format('YmdHis'),
+                'vnp_CurrCode' => 'VND',
+                'vnp_IpAddr' => $vnp_IpAddr,
+                'vnp_Locale' => $vnp_Locale,
+                'vnp_OrderInfo' => 'Thanh toan don hang ' . $order->id,
+                'vnp_OrderType' => 'topup',
+                'vnp_ReturnUrl' => $vnp_ReturnUrl,
+                'vnp_TxnRef' => $vnp_TxnRef,
+                'vnp_BankCode' => $vnp_BankCode
+            ];
+
+            if ($vnp_BankCode !== '') {
+                $inputData['vnp_BankCode'] = $vnp_BankCode;
+            }
+
+            ksort($inputData);
+            $query = '';
+            $i = 0;
+            $hashdata = '';
+            foreach ($inputData as $key => $value) {
+                if ($i == 1) {
+                    $hashdata .= '&' . urlencode($key) . '=' . urlencode($value);
+                } else {
+                    $hashdata .= urlencode($key) . '=' . urlencode($value);
+                    $i = 1;
+                }
+                $query .= urlencode($key) . '=' . urlencode($value) . '&';
+            }
+
+            $vnp_Url = $vnp_Url . '?' . $query;
+            if ($vnp_HashSecret) {
+                $vnpSecureHash = hash_hmac('sha512', $hashdata, $vnp_HashSecret);
+                $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+            }
+
+            // Save payment record
+            Payment::create([
+                'order_id' => $order->id,
+                'user_id' => Auth::id(),
+                'amount' => $this->totalAmount + $this->shippingFee,
+                'payment_method' => 'paypal',
+                'status' => 'pending',
+                'transaction_id' => $vnp_TxnRef,
+            ]);
+
+
+            return redirect()->away($vnp_Url);
+        }
     }
 
     public function render()

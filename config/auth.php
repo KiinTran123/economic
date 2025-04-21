@@ -50,7 +50,7 @@ return [
 
     'filament' => [
         'auth' => [
-            'guard' => 'admin', 
+            'guard' => 'admin',
         ],
     ],
 

@@ -1,6 +1,7 @@
 <div id="page-content" class="page-content">
     <div class="banner">
-        <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
+        <div class="jumbotron jumbotron-bg text-center rounded-0"
+            style="background-image: url('assets/img/bg-header.jpg');">
             <div class="container">
                 <h1 class="pt-5">
                     Thanh Toán
@@ -38,7 +39,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="province">Tỉnh/Thành phố</label>
-                                <select wire:model="selectedProvince" wire:change="updateSelectedProvince" class="form-control" id="province">
+                                <select wire:model="selectedProvince" wire:change="updateSelectedProvince"
+                                    class="form-control" id="province">
                                     <option value="">Chọn Tỉnh/Thành phố</option>
                                     @foreach($provinces as $province)
                                         <option value="{{ $province['code'] }}">{{ $province['name'] }}</option>
@@ -48,7 +50,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="district">Quận/Huyện</label>
-                                <select wire:model="selectedDistrict" wire:change="updateSelectedDistrict" class="form-control" id="district">
+                                <select wire:model="selectedDistrict" wire:change="updateSelectedDistrict"
+                                    class="form-control" id="district">
                                     <option value="">Chọn Quận/Huyện</option>
                                     @foreach($districts as $district)
                                         <option value="{{ $district['code'] }}">{{ $district['name'] }}</option>
@@ -58,7 +61,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="ward">Phường/Xã</label>
-                                <select wire:model="selectedWard"  class="form-control" id="ward">
+                                <select wire:model="selectedWard" class="form-control" id="ward">
                                     <option value="">Chọn Phường/Xã</option>
                                     @foreach($wards as $wardOption)
                                         <option value="{{ $wardOption['code'] }}">{{ $wardOption['name'] }}</option>
@@ -67,23 +70,35 @@
                                 @error('selectedWard') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="form-group">
-                                <input wire:model="address_detail" class="form-control" placeholder="Chi tiết địa chỉ (số nhà, tên đường, tòa nhà, tầng, v.v.)" type="text">
+                                <input wire:model="address_detail" class="form-control"
+                                    placeholder="Chi tiết địa chỉ (số nhà, tên đường, tòa nhà, tầng, v.v.)" type="text">
                                 @error('address_detail') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <h5 class="mb-3">PHƯƠNG THỨC THANH TOÁN</h5>
                             <div class="form-check">
-                                <input wire:model="paymentMethod" class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod" checked disabled>
+                                <input wire:model="paymentMethod" class="form-check-input" type="radio"
+                                    name="paymentMethod" id="cod" value="cod" checked disabled>
                                 <label class="form-check-label" for="cod">
                                     Thanh toán khi nhận hàng
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input wire:model="paymentMethod" class="form-check-input" type="radio"
+                                    name="paymentMethod" id="vnpay" value="vnpay">
+                                <label class="form-check-label" for="vnpay">
+                                    Thanh toán qua VNPay
                                 </label>
                             </div>
                             @error('paymentMethod') <span class="text-danger">{{ $message }}</span> @enderror
                             <p class="text-right mt-3">
                                 <input wire:model="termsAccepted" type="checkbox" id="terms">
-                                <label for="terms"> Tôi đã đọc và đồng ý với <a href="#">điều khoản & điều kiện</a></label>
+                                <label for="terms"> Tôi đã đọc và đồng ý với <a href="#">điều khoản & điều
+                                        kiện</a></label>
                                 @error('termsAccepted') <span class="text-danger">{{ $message }}</span> @enderror
                             </p>
-                            <button type="submit" class="btn btn-primary float-right">TIẾP TỤC THANH TOÁN <i class="fa fa-check"></i></button>
+                            <button type="submit" class="btn btn-primary float-right">TIẾP TỤC THANH TOÁN <i
+                                    class="fa fa-check"></i></button>
                             <div class="clearfix"></div>
                         </fieldset>
                     </form>
@@ -145,4 +160,3 @@
         </div>
     </section>
 </div>
-
