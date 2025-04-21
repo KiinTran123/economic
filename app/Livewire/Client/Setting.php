@@ -129,6 +129,8 @@ class Setting extends Component
             'message' => 'Thông tin đã được cập nhật thành công!!'
         ]);
         $this->currentAvatar = $user->fresh()->avatar ?? 'default.png';
+        $this->dispatch('updateUpdated');
+
     }
 
     private function fetchProvinces()

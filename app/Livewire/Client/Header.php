@@ -12,9 +12,13 @@ class Header extends Component
     public $countProducts;
     public $totalAmount;
 
-    protected $listeners = ['cartUpdated' => 'updateCart'];
+    protected $listeners = ['cartUpdated' => 'updateCart' , 'updateUpdated' => 'updateAvatar' ];
 
     public function updateCart()
+    {
+        $this->render();
+    }
+    public function updateAvatar()
     {
         $this->render();
     }
