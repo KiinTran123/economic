@@ -90,6 +90,7 @@ class Checkout extends Component
         $this->selectedDistrict = null;
         $this->wards = [];
         $this->selectedWard = null;
+        $this->loadCart();
         $this->calculateShippingFee();
     }
 
@@ -97,6 +98,7 @@ class Checkout extends Component
     {
         $this->wards = $this->fetchWards($this->selectedDistrict);
         $this->selectedWard = null;
+        $this->loadCart();
         $this->calculateShippingFee();
     }
 
