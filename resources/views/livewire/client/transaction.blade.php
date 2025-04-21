@@ -61,6 +61,21 @@
                                                     wire:click="showDetails('{{ $order->id }}')">
                                                 Chi tiết
                                             </button>
+                                            @if($order->status === 'shipped')
+                                                <button type="button" class="btn btn-success" wire:click="confirmDelivery({{ $order->id }})">
+                                                    Xác nhận đã nhận hàng
+                                                </button>
+                                            @endif
+                                            @if($order->status === 'pending')
+                                                    <button
+                                                        type="button"
+                                                        class="btn btn-danger"
+                                                        wire:click="confirmCancelled({{ $order->id }})"
+                                                        onclick="if (! confirm('Bạn có chắc chắn muốn huỷ đơn hàng này không?')) { event.stopImmediatePropagation(); }"
+                                                    >
+                                                        Huỷ đơn hàng
+                                                    </button>
+                                                @endif
                                         </td>
                                     </tr>
                                 @endforeach

@@ -65,6 +65,62 @@ class Transaction extends Component
         return 'Phường/Xã không xác định';
     }
 
+    public function confirmDelivery($orderId)
+    {
+        // Tìm đơn hàng
+        $order = Order::findOrFail($orderId);
+
+        if ($order->user_id !== auth()->id()) {
+            $this->addError('error', 'Bạn không có quyền xác nhận đơn hàng này.');
+            return;
+        }
+
+        // Kiểm tra trạng thái
+        if ($order->status !== 'shipped') {
+            $this->addError('error', 'Đơn hàng không ở trạng thái đã giao hàng.');
+            return;
+        }
+
+        $order->update(['status' => 'delivered']);
+
+        if ($order->payments && $order->payments->payment_method === 'cod') {
+            $order->payments->update(['status' => 'completed']);
+        }
+
+        $this->dispatch('swal:toast', [
+            'type' => 'success',
+            'message' => 'Đã xác nhận nhận hàng thành công!'
+        ]);
+
+    }
+
+
+
+    public function confirmCancelled($orderId)
+    {
+        // Tìm đơn hàng
+        $order = Order::findOrFail($orderId);
+
+        if ($order->user_id !== auth()->id()) {
+            $this->addError('error', 'Bạn không có quyền xác nhận đơn hàng này.');
+            return;
+        }
+
+        if ($order->status !== 'pending') {
+            $this->addError('error', 'Đơn hàng không ở trạng thái đã giao hàng.');
+            return;
+        }
+
+        $order->update(['status' => 'cancelled']);
+
+
+        $this->dispatch('swal:toast', [
+            'type' => 'success',
+            'message' => 'Đã xác nhận nhận huỷ đơn hàng thành công!'
+        ]);
+
+    }
+
     public function render()
     {
         $orders = Order::with(['details.product', 'payments'])
