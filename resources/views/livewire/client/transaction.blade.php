@@ -7,7 +7,6 @@
             </div>
         </div>
     </div>
-
     <section id="cart">
         <div class="container">
             <div class="row">
@@ -17,7 +16,7 @@
                             <thead>
                                 <tr>
                                     <th width="5%"></th>
-                                    <th>Mã Hóa Đơn</th>
+                                    <th>Hình ảnh</th>
                                     <th>Ngày</th>
                                     <th>Tổng Tiền</th>
                                     <th>Phương Thức Thanh Toán</th>
@@ -29,7 +28,30 @@
                                 @foreach($orders as $index => $order)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
-                                        <td>{{ $order->id }}</td>
+                                        <td>
+                                            @if($order->details->isNotEmpty())
+                                                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                                                    @foreach($order->details as $detail)
+                                                        @if($detail->product && $detail->product->images)
+                                                            @php
+                                                                $images = $detail->product->images;
+                                                                $firstImage = is_array($images) ? ($images[0] ?? null) : $images;
+                                                            @endphp
+                                                            @if($firstImage)
+                                                                <img src="{{ asset('storage/' . $firstImage) }}" alt="{{ $detail->product->name }}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;" onerror="this.src='/assets/img/placeholder.jpg';">
+                                                            @else
+                                                                <span style="color: #6c757d;">Không có hình ảnh</span>
+                                                            @endif
+                                                        @else
+                                                            <span style="color: #6c757d;">Không có hình ảnh</span>
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                            @else
+                                                <span style="color: #6c757d;">Không có hình ảnh</span>
+                                            @endif
+                                        </td>
+                                        <!-- <td>{{ $order->id }}</td> -->
                                         <td>{{ $order->created_at->format('d-m-Y') }}</td>
                                         <td>{{ number_format($order->total_price, 0, ',', '.') }} VND</td>
                                         <td>{{ $order->payments ? $order->payments->payment_method : 'Chưa thanh toán' }}</td>

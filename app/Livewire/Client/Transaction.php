@@ -70,7 +70,6 @@ class Transaction extends Component
         $orders = Order::with(['details.product', 'payments'])
             ->where('user_id', auth()->id())
             ->paginate(10);
-
         // Prepare address for each order
         $orderAddresses = [];
         foreach ($orders as $order) {
