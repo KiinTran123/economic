@@ -9,6 +9,20 @@
             </div>
         </div>
     </div>
+    <style>
+        .post-content {
+            overflow-wrap: break-word;
+            word-break: break-word;
+            overflow-x: auto;
+            max-width: 100%;
+        }
+
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
     <section class="pb-0">
         <div class="container">
             <div class="row mt-3">
@@ -18,7 +32,7 @@
                         <p class="text-muted">Đăng bởi: {{ $post->author ?? 'Tác giả không rõ' }} | {{ $post->created_at->format('d/m/Y') }}</p>
 
                         <div class="post-content">
-                            {!! nl2br(e($post->content)) !!} <!-- Hiển thị nội dung bài viết -->
+                            {!! $post->content !!} <!-- Hiển thị nội dung bài viết -->
                         </div>
 
                         <hr>
@@ -57,10 +71,13 @@
                         <h3 class="font-weight-normal mb-3 text-primary">Bài viết liên quan</h3>
                         @foreach ($relatedPosts as $relatedPost)
                         <div class="card mb-3">
-                            <img src="https://tse1.mm.bing.net/th/id/OIP.52YQJGp8zBSA6UX2kBAPPAHaDC?w=1500&h=617&rs=1&pid=ImgDetMain" class="card-img-top" alt="Thumbnail">
+
+                            <img src="{{ $relatedPost->thumbnail ? asset('storage/' . $relatedPost->thumbnail) : 'https://tse1.mm.bing.net/th/id/OIP.52YQJGp8zBSA6UX2kBAPPAHaDC?w=1500&h=617&rs=1&pid=ImgDetMain' }}"
+                                class="img-fluid mb-4 thumbnail-img"
+                                alt="Thumbnail">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $relatedPost->title }}</h5>
-                                <p class="card-text">{{ Str::limit($relatedPost->content, 120) }}</p>
+                                <p class="card-text">{!! Str::limit($relatedPost->content, 120) !!}</p>
                                 <a href="{{ route('post.detail', $relatedPost->id) }}" class="btn btn-outline-primary btn-sm">Xem chi tiết</a>
                             </div>
                         </div>
