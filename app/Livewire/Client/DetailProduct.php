@@ -21,10 +21,16 @@ class DetailProduct extends Component
 
     public function addToCart()
     {
+
+        
         $userId = Auth::id();
 
         if (!$userId) {
-            session()->flash('error', 'Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng.');
+
+            $this->dispatch('swal:toast', [
+                'type' => 'error',
+                'message' => 'Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng.'
+            ]);
             return;
         }
 
