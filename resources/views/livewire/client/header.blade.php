@@ -25,6 +25,9 @@
             <li class="nav-item">
               <a href="{{ route('about') }}" class="nav-link">Freshcery</a>
             </li>
+            <li class="nav-item">
+              <a href="{{ route('post') }}" class="nav-link">Bài viết</a>
+            </li>
 
             <li class="nav-item dropdown">
               @auth

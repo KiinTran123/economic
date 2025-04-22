@@ -18,6 +18,8 @@ use App\Livewire\Client\Terms;
 use App\Livewire\Client\Transaction;
 use App\Livewire\Client\VNPayCallback;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Client\BlogPage;
+use App\Livewire\Client\PostDetail;
 
 // Route công khai (không cần đăng nhập)
 Route::get('/', Index::class)->name('home');
@@ -49,15 +51,14 @@ Route::get('/forgot-password', function () {
 
 Route::middleware(['auth'])->group(function () {
 
-Route::get('/gio-hang', Carts::class)->name('cart');
+    Route::get('/gio-hang', Carts::class)->name('cart');
 
 
-Route::get('/thanh-toan', Checkout::class)->name('checkout');
+    Route::get('/thanh-toan', Checkout::class)->name('checkout');
 
-Route::get('/cai-dat', Setting::class)->name('setting');
+    Route::get('/cai-dat', Setting::class)->name('setting');
 
-Route::get('/giao-dich', Transaction::class)->name('transaction');
-
+    Route::get('/giao-dich', Transaction::class)->name('transaction');
 });
 
 Route::get('/forgot-password', action: ForgotPassword::class)->name('password.request');
@@ -67,5 +68,5 @@ Route::get('/reset-password/{token}', ResetPassword::class)
     ->middleware('guest')
     ->name('password.reset');
 
-
-
+Route::get('/bai-viet', BlogPage::class)->name('post');
+Route::get('/bai-viet/{postId}', PostDetail::class)->name('post.detail');
