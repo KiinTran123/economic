@@ -74,7 +74,7 @@ class VNPayCallback extends Component
                 $this->type = 'success';
                 $this->message = 'Thanh toán thành công! Cảm ơn bạn đã đặt hàng.';
             } else {
-                // Payment failed
+            
                 $order->update(['status' => 'failed']);
                 $payment->update(['status' => 'failed']);
 

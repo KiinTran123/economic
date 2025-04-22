@@ -10,8 +10,11 @@ use Illuminate\Support\Facades\Http;
 class Transaction extends Component
 {
     use WithPagination;
-
+    public $product;
     public $selectedOrderId;
+    public $order;
+
+
 
     public function showDetails($orderId)
     {
@@ -21,7 +24,8 @@ class Transaction extends Component
 
     private function getProvinceNameByCode($provinceCode)
     {
-        if (!$provinceCode) return 'Tỉnh/Thành phố không xác định';
+        if (!$provinceCode)
+            return 'Tỉnh/Thành phố không xác định';
 
         $response = Http::get("https://provinces.open-api.vn/api/p/{$provinceCode}");
         if ($response->successful()) {
@@ -33,7 +37,8 @@ class Transaction extends Component
 
     private function getDistrictNameByCode($districtCode, $provinceCode)
     {
-        if (!$districtCode || !$provinceCode) return 'Quận/Huyện không xác định';
+        if (!$districtCode || !$provinceCode)
+            return 'Quận/Huyện không xác định';
 
         $response = Http::get("https://provinces.open-api.vn/api/p/{$provinceCode}?depth=2");
         if ($response->successful()) {
@@ -50,7 +55,8 @@ class Transaction extends Component
 
     private function getWardNameByCode($wardCode, $districtCode)
     {
-        if (!$wardCode || !$districtCode) return 'Phường/Xã không xác định';
+        if (!$wardCode || !$districtCode)
+            return 'Phường/Xã không xác định';
 
         $response = Http::get("https://provinces.open-api.vn/api/d/{$districtCode}?depth=2");
         if ($response->successful()) {
@@ -67,21 +73,37 @@ class Transaction extends Component
 
     public function confirmDelivery($orderId)
     {
-        // Tìm đơn hàng
-        $order = Order::findOrFail($orderId);
+        // Load order + items + product
+        $order = Order::with('details.product')->findOrFail($orderId);
 
         if ($order->user_id !== auth()->id()) {
             $this->addError('error', 'Bạn không có quyền xác nhận đơn hàng này.');
             return;
         }
 
-        // Kiểm tra trạng thái
         if ($order->status !== 'shipped') {
             $this->addError('error', 'Đơn hàng không ở trạng thái đã giao hàng.');
             return;
         }
 
         $order->update(['status' => 'delivered']);
+
+        foreach ($order->details as $item) {
+            $product = $item->product;
+            if ($product) {
+                $newQuantity = $product->quantity - $item->quantity;
+                if ($newQuantity < 0) {
+                    $this->addError('error', "Sản phẩm {$product->name} không đủ số lượng trong kho.");
+                    return;
+                }
+                $product->update(['quantity' => $newQuantity]);
+            }
+        }
+
+
+
+
+
 
         if ($order->payments && $order->payments->payment_method === 'cod') {
             $order->payments->update(['status' => 'completed']);
@@ -141,7 +163,7 @@ class Transaction extends Component
             'orders' => $orders,
             'orderAddresses' => $orderAddresses,
         ])
-        ->layout('components.layouts.app')
-        ->title('Giao dịch');
+            ->layout('components.layouts.app')
+            ->title('Giao dịch');
     }
 }

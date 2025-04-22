@@ -180,7 +180,6 @@ class Checkout extends Component
             return;
         }
 
-        // Create the order
         $order = Order::create([
             'user_id' => Auth::id(),
             'total_price' => $this->totalAmount + $this->shippingFee,
@@ -191,7 +190,7 @@ class Checkout extends Component
             'address_detail' => $this->address_detail,
         ]);
 
-        // Create order details
+
         foreach ($this->productsCart as $cartItem) {
             OrderDetail::create([
                 'order_id' => $order->id,
@@ -201,7 +200,6 @@ class Checkout extends Component
             ]);
         }
 
-        // Handle payment based on method
         if ($this->paymentMethod === 'cod') {
             // COD Payment
             Payment::create([
@@ -303,6 +301,8 @@ class Checkout extends Component
 
     public function render()
     {
+        $this->loadCart();
+
         return view('livewire.client.checkout', [
             'productsCart' => $this->productsCart,
             'totalAmount' => $this->totalAmount,

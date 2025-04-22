@@ -75,14 +75,17 @@
                                 @error('address_detail') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <h5 class="mb-3">PHƯƠNG THỨC THANH TOÁN</h5>
-                            <div class="form-check">
+
+                            <!-- Thanh toán khi nhận hàng -->
+                            <div class="form-check mb-2">
                                 <input wire:model="paymentMethod" class="form-check-input" type="radio"
-                                    name="paymentMethod" id="cod" value="cod" checked disabled>
+                                    name="paymentMethod" id="cod" value="cod">
                                 <label class="form-check-label" for="cod">
                                     Thanh toán khi nhận hàng
                                 </label>
                             </div>
 
+                            <!-- Thanh toán qua VNPay -->
                             <div class="form-check">
                                 <input wire:model="paymentMethod" class="form-check-input" type="radio"
                                     name="paymentMethod" id="vnpay" value="vnpay">
@@ -90,6 +93,7 @@
                                     Thanh toán qua VNPay
                                 </label>
                             </div>
+                            
                             @error('paymentMethod') <span class="text-danger">{{ $message }}</span> @enderror
                             <p class="text-right mt-3">
                                 <input wire:model="termsAccepted" type="checkbox" id="terms">
@@ -116,14 +120,14 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($productsCart as $cartItem)
-                                    <tr>
-                                        <td>
-                                            {{ $cartItem->name }} (x{{ $cartItem->quantity }})
-                                        </td>
-                                        <td class="text-right">
-                                            {{ number_format($cartItem->total, 0, ',', '.') }} VNĐ
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>
+                                                {{ $cartItem->name }} (x{{ $cartItem->quantity }})
+                                            </td>
+                                            <td class="text-right">
+                                                {{ number_format($cartItem->total, 0, ',', '.') }} VNĐ
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                                 <tfoot>
@@ -148,7 +152,8 @@
                                             <strong>TỔNG ĐƠN HÀNG</strong>
                                         </td>
                                         <td class="text-right">
-                                            <strong>{{ number_format($totalAmount + $shippingFee, 0, ',', '.') }} VNĐ</strong>
+                                            <strong>{{ number_format($totalAmount + $shippingFee, 0, ',', '.') }}
+                                                VNĐ</strong>
                                         </td>
                                     </tr>
                                 </tfoot>
